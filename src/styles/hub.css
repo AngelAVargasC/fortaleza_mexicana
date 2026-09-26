@@ -1,0 +1,33 @@
+/* ── Hub (DEC-027): producciones, canales y cartelera ──────────────────────
+   Reutiliza .card, .badge, .meta y .estado; aqui solo va lo que no existia. */
+
+.rejilla .canal{display:flex;flex-direction:column;}
+.rejilla .canal .card-body{flex:1;}
+.canal .card-foot{margin-top:auto;}
+.red-aliada{color:var(--coral);font-weight:500;}
+
+.canales-mini{display:grid;gap:var(--s2) var(--s6);grid-template-columns:repeat(auto-fill,minmax(200px,1fr));}
+.canales-mini a{display:flex;flex-direction:column;padding-block:var(--s2);border-top:1px solid rgba(23,21,18,.16);}
+.canales-mini b{font-weight:600;}
+.canales-mini span{font-size:.8125rem;opacity:.7;}
+
+/* Cartelera: una fila por funcion. */
+.funciones{display:flex;flex-direction:column;}
+.funcion{display:grid;gap:var(--s4) var(--s8);align-items:center;padding-block:var(--s6);
+  border-top:1px solid rgba(230,217,200,.1);}
+.funcion:last-child{border-bottom:1px solid rgba(230,217,200,.1);}
+@media(min-width:760px){.funcion{grid-template-columns:180px minmax(0,1fr) auto;}}
+.funcion-fecha{font-family:var(--f-disp);font-size:1.25rem;letter-spacing:.06em;color:var(--coral);}
+.funcion.vacia{grid-template-columns:180px minmax(0,1fr);}
+@media(max-width:759px){.funcion.vacia{grid-template-columns:minmax(0,1fr);}}
+
+/* Produccion en su pagina: foto y texto a dos columnas, alternando. */
+.prod-fila{display:grid;gap:var(--s10);align-items:center;padding-block:var(--s12);
+  border-top:1px solid rgba(230,217,200,.1);scroll-margin-top:calc(var(--nav-h) + 24px);}
+@media(min-width:1000px){
+  .prod-fila{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);}
+  .prod-fila:nth-child(even) > .figura{order:2;}
+}
+
+/* El pie gana la columna de contenidos. */
+@media(min-width:760px){.foot{grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,1fr));}}

@@ -1,0 +1,331 @@
+/* CSS global compartido: fuentes, tokens, tipografia, botones, desplegable,
+   tarjetas, carril, revelado. Nacio de sitio2/_plantilla.html; las clases son
+   globales a proposito. La maqueta del hub clasico vive en clasico.css
+   (DEC-028); la version inmersiva completa, en baul/v3-web-inmersiva. */
+/* Brandbook sep. 2026: Trajan (principal) y Proxima Nova (complementaria)
+   son comerciales y no se pueden incrustar. Sustitutas libres (OFL) mas
+   cercanas: Cinzel, dibujada sobre las capitales romanas como Trajan, y
+   Montserrat, geometrica como Proxima. Variables: un archivo por familia. */
+@font-face{font-family:'Cinzel';font-weight:400 900;font-style:normal;font-display:swap;src:url(/fonts/cinzel.woff2) format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:100 900;font-style:normal;font-display:swap;src:url(/fonts/montserrat.woff2) format('woff2');}
+
+
+:root{
+  /* ── color: kit institucional (Bastión Cultural, DEC-012), con dos correcciones de contraste. La marca visible es siempre Fortaleza Mexicana (DEC-024) ── */
+  /* Brandbook sep. 2026 (DEC-025): Piedra, Gris humo, Bronce, Oro viejo,
+     Rojo profundo, Marfil. Contrastes medidos sobre Piedra. */
+  --negro:#171512;              /* Piedra · Black 7 C                            */
+  --g900:#1E1B17; --g800:#262219; --g700:#332E27; --g600:#4A443B; --g500:#8C8175;
+  --blanco:#E6D9C8;             /* Marfil · 7527 C · texto principal, 12,4:1     */
+  --txt-2:#A69B8D;              /* Gris humo aclarado · 6,0:1 (el 8C8175 da 4,4) */
+  --gris:#8C8175;               /* Gris humo · Warm Gray 9 C · solo grafico/grande */
+  --coral:#C39A64;              /* Oro viejo · 4655 C · acento · 6,7:1           */
+  --coral-btn:#C39A64;          /* Oro viejo de relleno · texto PIEDRA · 6,7:1   */
+  --naranja:#9B6B3E;            /* Bronce · 7584 C · 3,9:1 · solo grande/grafico */
+  --azul:#63151A;               /* Rojo profundo · 1817 C · placa de categoria   */
+  --azul-btn:#63151A;           /* con texto marfil · 7,9:1                      */
+  --verde:#C39A64;              /* no hay verde en la marca: estado abierto en oro */
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:999px;
+
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;
+  --s10:40px;--s12:48px;--s16:64px;--s20:80px;--s24:96px;
+
+  /* Contenedor ancho: casi sin aire muerto a los lados */
+  --max:2040px; --gutter:24px;
+  --margin:clamp(20px,2.6vw,56px);
+  --nav-h:86px;
+
+  --f-ui:'Montserrat','Segoe UI',system-ui,sans-serif;
+  --f-body:'Montserrat','Segoe UI',system-ui,sans-serif;
+  --f-disp:'Cinzel','Trajan Pro',Georgia,serif;   /* titulares y rotulos en versales */
+
+  --dur:360ms; --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-padding-top:calc(var(--nav-h) + 20px);}
+body{
+  /* El anclaje de scroll de Chrome reacciona a las capas que se animan cada
+     fotograma (hero clavado y secuencia) y reajusta la posicion: la pagina se
+     desplaza sola. Se desactiva para todo el documento. */
+  overflow-anchor:none;
+  margin:0;background:var(--negro);color:var(--blanco);
+  font-family:var(--f-body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  /* clip, NO hidden: overflow-x:hidden convierte al body en contenedor de
+     scroll y desactiva el position:sticky de todos sus descendientes. Las
+     placas dejaban de apilarse y se iban de corrido. clip recorta igual. */
+  overflow-x:clip;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:4px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
+h1,h2,h3,h4{margin:0;font-family:var(--f-ui);font-weight:700;letter-spacing:-.01em;line-height:1.1;text-wrap:balance;}
+h1,h2,.h1,.h2{font-family:var(--f-disp);font-weight:700;letter-spacing:.015em;}
+p{margin:0;}
+.h1{font-size:clamp(2.2rem,4.6vw,3.3rem);font-weight:700;letter-spacing:.015em;line-height:1.06;}
+.h2{font-size:clamp(1.4rem,2.3vw,1.85rem);letter-spacing:.02em;}
+.h3{font-size:1.25rem;letter-spacing:-.02em;}
+.h4{font-size:1.0625rem;letter-spacing:-.015em;}
+.lead{font-size:1.0625rem;color:var(--txt-2);line-height:1.6;}
+.small{font-size:.875rem;}
+.tiny{font-size:.75rem;}
+.mut{color:var(--txt-2);}
+
+/* Al doble de cuerpo. El cuadradito y el hueco van en em para que crezcan con
+   la letra, y el tracking baja: en versales grandes, el mismo espaciado que a
+   14 px separa demasiado. */
+.eyebrow{display:inline-flex;align-items:center;gap:.42em;font-family:var(--f-disp);
+  font-size:1.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+  line-height:1.15;}
+.eyebrow::before{content:"";width:.42em;height:.42em;border-radius:.1em;background:currentColor;
+  flex:none;}
+/* El rotulo alterna entre los dos textos de la seccion: sale hacia arriba y el
+   siguiente entra desde abajo. El ancho se fija al del texto mas largo para
+   que el cambio no empuje a lo que tiene al lado. */
+.eyebrow .rota{display:inline-block;
+  transition:transform .38s var(--ease), opacity .38s var(--ease);}
+.eyebrow .rota.sale{opacity:0;transform:translateY(-.75em);}
+.eyebrow .rota.entra{opacity:0;transform:translateY(.75em);transition:none;}
+@media(prefers-reduced-motion:reduce){
+  .eyebrow .rota{transition:none;transform:none!important;opacity:1!important;}
+}
+.e-azul{color:var(--azul);} .e-coral{color:var(--coral);}
+.e-naranja{color:var(--naranja);} .e-blanco{color:var(--blanco);}
+
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--margin);}
+.stack{display:flex;flex-direction:column;}
+.g2{gap:var(--s2);}.g3{gap:var(--s3);}.g4{gap:var(--s4);}.g5{gap:var(--s5);}
+.g6{gap:var(--s6);}.g8{gap:var(--s8);}.g10{gap:var(--s10);}.g12{gap:var(--s12);}
+.row{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap;}
+.between{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;}
+
+/* ─────────── BARRA (la maqueta vive en clasico.css) ─────────── */
+.marca{display:inline-block;line-height:0;}
+.marca img{height:46px;width:auto;display:block;}
+.foot .marca img{height:48px;}
+/* ── desplegable ── */
+.vermas{display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--f-ui);font-size:.875rem;font-weight:700;letter-spacing:-.01em;
+  color:var(--blanco);padding:9px 4px;}
+.vermas svg{width:13px;height:13px;transition:transform var(--dur) var(--ease);}
+.vermas[aria-expanded="true"] svg{transform:rotate(180deg);}
+.vermas span{position:relative;}
+.vermas span::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:2px;
+  background:currentColor;transform:scaleX(0);transform-origin:right;
+  transition:transform var(--dur) var(--ease);}
+.vermas:hover span::after,.vermas[aria-expanded="true"] span::after{transform:scaleX(1);transform-origin:left;}
+
+.desplegable{position:fixed;inset:var(--nav-h) 0 auto;z-index:58;
+  background:rgba(23,21,18,.97);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.09);
+  opacity:0;transform:translateY(-10px);pointer-events:none;
+  transition:opacity .3s var(--ease),transform .38s var(--ease);}
+.desplegable.on{opacity:1;transform:none;pointer-events:auto;}
+.desp-in{width:100%;max-width:var(--max);margin-inline:auto;
+  padding:var(--s12) var(--margin) var(--s16);
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s10) var(--s8);}
+.desp-col{display:flex;flex-direction:column;gap:var(--s3);}
+.desp-tit{font-family:var(--f-ui);font-size:.6875rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--coral);
+  padding-bottom:var(--s3);border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:var(--s2);}
+.desp-col a{font-family:var(--f-ui);font-size:1.125rem;font-weight:700;letter-spacing:-.025em;
+  color:var(--txt-2);width:fit-content;
+  transition:color var(--dur),transform var(--dur) var(--ease);}
+.desp-col a:hover{color:var(--blanco);transform:translateX(5px);}
+/* Escalonado de entrada: la lista se arma de arriba abajo. */
+.desplegable.on .desp-col{animation:despSube .45s var(--ease) backwards;}
+.desplegable.on .desp-col:nth-child(2){animation-delay:.05s;}
+.desplegable.on .desp-col:nth-child(3){animation-delay:.1s;}
+.desplegable.on .desp-col:nth-child(4){animation-delay:.15s;}
+@keyframes despSube{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+@media(max-width:860px){
+  .desp-in{grid-template-columns:repeat(2,minmax(0,1fr));padding-block:var(--s8) var(--s10);}
+  .desp-col a{font-size:1rem;}
+}
+@media(prefers-reduced-motion:reduce){
+  .desplegable,.desp-col a,.vermas svg,.vermas span::after{transition:none;}
+  .desplegable.on .desp-col{animation:none;}
+}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  height:44px;padding:0 var(--s5);border-radius:var(--r-full);
+  font-family:var(--f-ui);font-size:.875rem;font-weight:700;letter-spacing:-.01em;
+  /* Texto NEGRO sobre el oro: en blanco daria 2,4:1 y no pasaria. */
+  background:var(--coral-btn);color:#171512;transition:transform var(--dur) var(--ease),background var(--dur);}
+.btn:hover{background:#C39A64;transform:translateY(-1px);}
+.btn svg{width:15px;height:15px;}
+.btn-lg{height:52px;padding:0 var(--s8);font-size:.9375rem;}
+
+.lnk{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-ui);font-weight:500;
+  font-size:.875rem;transition:gap var(--dur) var(--ease);}
+.lnk:hover{gap:13px;}
+.lnk svg{width:14px;height:14px;}
+.lnk-coral{color:var(--coral);} .lnk-blanco{color:var(--blanco);}
+
+
+.h1{font-size:clamp(2.4rem,5.6vw,6.6rem);line-height:1.06;letter-spacing:.015em;
+  max-width:min(60vw,1100px);font-weight:700;}
+@media(max-width:999px){.h1{max-width:none;}}
+
+.cta-plano{display:inline-flex;align-items:center;gap:13px;
+  font-family:var(--f-disp);font-weight:700;
+  text-transform:uppercase;
+  font-size:clamp(1.05rem,1.5vw,1.5rem);letter-spacing:.035em;line-height:1.05;
+  color:var(--blanco);
+  text-shadow:0 1px 16px rgba(23,21,18,.92), 0 1px 4px rgba(23,21,18,.78);
+  transition:color var(--dur),gap var(--dur) var(--ease);}
+.cta-plano span{position:relative;}
+.cta-plano span::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;
+  background:currentColor;transform:scaleX(0);transform-origin:left;
+  transition:transform var(--dur) var(--ease);}
+.cta-plano:hover{color:var(--coral);gap:18px;}
+.cta-plano:hover span::after{transform:scaleX(1);}
+.cta-plano svg{width:20px;height:20px;stroke-width:2.6;flex:none;}
+.cta-plano:focus-visible{outline:2px solid var(--coral);outline-offset:8px;}
+@media(prefers-reduced-motion:reduce){
+  .cta-plano,.cta-plano span::after{transition:none;}
+}
+
+.chips{display:flex;gap:var(--s2);overflow-x:auto;scrollbar-width:none;}
+.chips::-webkit-scrollbar{display:none;}
+.chip{height:38px;padding:0 var(--s5);border-radius:var(--r-full);white-space:nowrap;
+  font-family:var(--f-ui);font-size:.875rem;font-weight:500;color:var(--txt-2);
+  transition:color var(--dur),background var(--dur);}
+.chip:hover{color:var(--blanco);background:rgba(255,255,255,.06);}
+.chip[aria-pressed="true"]{background:var(--coral-btn);color:var(--blanco);font-weight:700;}
+.selects{display:flex;gap:var(--s2);flex-wrap:wrap;}
+.sel{height:38px;padding:0 var(--s4);border-radius:var(--r-sm);background:var(--g900);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.09);color:var(--txt-2);
+  font-family:var(--f-ui);font-size:.8125rem;display:inline-flex;align-items:center;gap:10px;}
+.sel svg{width:11px;height:11px;opacity:.7;}
+
+/* ─────────── TARJETAS ─────────── */
+.badge{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:var(--r-sm);
+  font-family:var(--f-ui);font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#171512;}
+.b-workshop{background:var(--azul);color:var(--blanco);}
+.b-curso{background:var(--blanco);color:var(--negro);}
+.b-evento{background:var(--coral);color:#171512;}
+
+/* La profundidad va en la IMAGEN, no en la tarjeta: el contenedor solo se
+   levanta un poco y aclara su filo. Quien se mueve dentro del marco es la foto. */
+.card{background:var(--g900);border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);
+  transition:transform var(--dur) var(--ease),box-shadow var(--dur);}
+.card:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);}
+.card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--g800);}
+/* La imagen la mueve el script (paralaje + zoom); nada de transiciones aqui o
+   pelearian con el fotograma. */
+.card-img img{width:100%;height:100%;object-fit:cover;will-change:transform;}
+.card-img .badge{position:absolute;top:12px;left:12px;}
+.card-body{padding:var(--s5);display:flex;flex-direction:column;gap:var(--s4);}
+.meta{display:flex;flex-wrap:wrap;gap:var(--s4);color:var(--txt-2);font-size:.75rem;}
+.meta span{display:inline-flex;align-items:center;gap:6px;}
+.meta svg{width:13px;height:13px;opacity:.8;}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);
+  padding-top:var(--s4);border-top:1px solid rgba(255,255,255,.07);}
+.estado{font-family:var(--f-ui);font-size:.75rem;font-weight:500;}
+.est-abierto{color:var(--coral);} .est-pronto{color:var(--txt-2);} .est-ultimos{color:var(--blanco);}
+
+
+/* carrusel */
+/* Tarjetas verticales y de igual alto, estiradas hasta el pie del destacado:
+   asi las dos columnas cierran a la misma linea. */
+.carril{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(266px,1fr);gap:var(--s5);
+  overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:var(--s2);
+  align-items:stretch;flex:1;}
+.carril > .card{display:flex;flex-direction:column;height:100%;}
+.carril .card-img{aspect-ratio:auto;flex:1;min-height:200px;}
+.carril .card-body{flex:none;}
+.duo > .stack{display:flex;flex-direction:column;}
+.carril::-webkit-scrollbar{display:none;}
+.carril > *{scroll-snap-align:start;}
+.flecha{width:44px;height:44px;border-radius:var(--r-full);display:grid;place-items:center;
+  background:var(--g800);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+  transition:background var(--dur);flex:none;}
+.flecha:hover{background:var(--g700);}
+.flecha svg{width:16px;height:16px;}
+.flecha[disabled]{opacity:.35;cursor:default;}
+
+/* cursos premium */
+.curso{display:grid;grid-template-columns:96px minmax(0,1fr);gap:var(--s4);padding-block:var(--s5);
+  border-top:1px solid rgba(255,255,255,.07);}
+.curso img{width:96px;height:74px;object-fit:cover;border-radius:var(--r-md);}
+
+/* comunidad */
+.benef{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s3);}
+.benef li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:var(--s3);align-items:start;
+  color:var(--txt-2);font-size:.875rem;}
+.benef svg{width:16px;height:16px;color:var(--azul);margin-top:2px;}
+
+/* impacto */
+.cifras{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s6) var(--s4);}
+@media(min-width:520px){.cifras{grid-template-columns:repeat(4,1fr);}}
+.cifra b{display:block;font-family:var(--f-ui);font-weight:900;font-size:clamp(1.5rem,3vw,2rem);
+  letter-spacing:-.03em;line-height:1;}
+.cifra span{display:block;margin-top:6px;font-size:.75rem;color:var(--txt-2);}
+.cita{display:grid;grid-template-columns:26px minmax(0,1fr);gap:var(--s4);}
+.cita svg{width:24px;height:24px;color:var(--g600);}
+
+
+/* ── metodología ── */
+.paso{display:flex;flex-direction:column;gap:var(--s4);}
+.figura{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:var(--r-lg);
+  background:var(--g800);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);}
+.figura img{width:100%;height:100%;object-fit:cover;will-change:transform;}
+.paso-n{font-family:var(--f-ui);font-size:1.1875rem;font-weight:700;letter-spacing:-.025em;}
+
+.manifiesto-in{display:grid;gap:var(--s10);align-items:center;}
+@media(min-width:1000px){.manifiesto-in{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);}}
+.figura-alta{aspect-ratio:5/4;}
+.manifiesto-cita{margin:0;max-width:20ch;
+  font-family:var(--f-disp);font-style:normal;font-weight:400;
+  font-size:clamp(1.9rem,4vw,3.6rem);line-height:1.12;letter-spacing:.01em;}
+
+/* rejilla de secciones */
+.sec{padding-block:var(--s16);}
+.duo{display:grid;gap:var(--s10);}
+@media(min-width:1000px){
+  .duo{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+       align-items:stretch;}
+  .duo > .stack{min-height:0;}
+}
+.trio{display:grid;gap:var(--s10);}
+@media(min-width:900px){.trio{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s8);}}
+
+footer{border-top:1px solid rgba(255,255,255,.08);padding-block:var(--s12);margin-top:var(--s16);}
+.foot{display:grid;gap:var(--s8);}
+@media(min-width:760px){.foot{grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));}}
+.foot h5{font-family:var(--f-ui);font-size:.6875rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--txt-2);margin:0 0 var(--s4);}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+.foot a{font-size:.875rem;color:var(--txt-2);transition:color var(--dur);}
+.foot a:hover{color:var(--blanco);}
+.legal{margin-top:var(--s10);padding-top:var(--s6);border-top:1px solid rgba(255,255,255,.07);
+  display:flex;justify-content:space-between;gap:var(--s5);flex-wrap:wrap;color:var(--txt-2);font-size:.8125rem;}
+
+/* ── revelado bidireccional ────────────────────────────────────────────────
+   Cada pieza (rotulo, titular, tarjeta, parrafo...) entra desde el lado por
+   el que llega y sale hacia el lado por el que se va, en las dos direcciones
+   del scroll y tantas veces como se pase. El JS marca .rv en las piezas,
+   .arriba en las que estan por encima de la ventana, y --i con su orden
+   entre hermanas para escalonar la entrada. La salida no se escalona. */
+.rv{opacity:0;transform:translateY(34px);
+  transition:opacity .75s var(--ease),transform .9s var(--ease);transition-delay:0s;}
+.rv.arriba{transform:translateY(-34px);}
+.rv.on{opacity:1;transform:none;transition-delay:calc(var(--i,0) * 75ms);}
+/* las tarjetas y figuras ademas llegan un punto mas pequenas */
+.card.rv,.curso.rv,.figura.rv,.mov figure.rv,.ficha > div.rv{transform:translateY(34px) scale(.96);}
+.card.rv.arriba,.curso.rv.arriba,.figura.rv.arriba,.mov figure.rv.arriba,.ficha > div.rv.arriba{transform:translateY(-34px) scale(.96);}
+.card.rv.on,.curso.rv.on,.figura.rv.on,.mov figure.rv.on,.ficha > div.rv.on{transform:none;}
+/* entrada al cargar de las cabeceras de subpagina (subpaginas.css) */
+@keyframes entra{from{opacity:0;translate:0 46px;}to{opacity:1;translate:0 0;}}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:1ms!important;animation-duration:1ms!important;}
+  .rv{opacity:1;transform:none;}
+  .card:hover{transform:none;}
+}
