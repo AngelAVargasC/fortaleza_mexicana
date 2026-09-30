@@ -194,7 +194,10 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
         {canales.length > 0 ? (
           <div className="canales-mini">
             {canales.slice(0, 6).map((c) => (
-              <a key={c.url} href={c.url} target="_blank" rel="noopener"><b>{c.nombre}</b><span>{c.tema}</span></a>
+              <a key={c.url} href={c.url} target="_blank" rel="noopener">
+                {c.img && <img src={c.img} alt="" loading="lazy" />}
+                <span className="canal-mini-txt"><b>{c.nombre}</b><span>{c.tema}</span><small>{"Ver canal en " + c.plataforma}</small></span>
+              </a>
             ))}
           </div>
         ) : (

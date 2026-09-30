@@ -160,6 +160,8 @@ export const RECURSOS: Record<string, Recurso> = {
       { nombre: "descripcion", etiqueta: "Descripción", tipo: "textoLargo", filas: 2, requerido: true, ancho: true },
       { nombre: "url", etiqueta: "Enlace", tipo: "url", requerido: true },
       { nombre: "cta", etiqueta: "Texto del enlace", tipo: "texto", requerido: true, porDefecto: "Visitar" },
+      { nombre: "imagenUrl", etiqueta: "Imagen", tipo: "imagen", nulo: true, ayuda: "Horizontal, 1200×630 (la de vista previa de su sitio)." },
+      { nombre: "imagenAlt", etiqueta: "Descripción de la imagen", tipo: "texto" },
       orden, visible,
     ],
     columnas: ["nombre", "tipo", "orden", "visible"],

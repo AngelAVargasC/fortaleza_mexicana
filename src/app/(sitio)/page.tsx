@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 export default async function Page() {
   const [cartelera, producciones, canales, enElFronton, catalogo, publicaciones] = await Promise.all([
     obtenerCartelera(), obtenerProducciones(), obtenerCanales(), obtenerAliados(), obtenerExperiencias(),
-    obtenerPublicaciones("todas", 6),
+    obtenerPublicaciones("todas", 8),
   ]);
   return <HomeContent {...{ cartelera, producciones, canales, enElFronton, catalogo, publicaciones }} />;
 }

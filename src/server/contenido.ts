@@ -98,6 +98,7 @@ const _aliados = unstable_cache(async (): Promise<Vecino[]> => {
     .orderBy(asc(t.aliados.orden), asc(t.aliados.nombre));
   return filas.map((a) => ({
     id: a.slug, tipo: a.tipo, nombre: a.nombre, desc: a.descripcion, donde: opc(a.donde), url: a.url, cta: a.cta,
+    img: opc(a.imagenUrl), alt: a.imagenAlt,
   }));
 }, ["aliados"], { tags: [ETIQUETA.aliados], revalidate: REVALIDAR });
 

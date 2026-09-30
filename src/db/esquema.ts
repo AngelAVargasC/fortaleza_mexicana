@@ -141,6 +141,9 @@ export const aliados = pgTable("aliados", {
   donde: text("donde"),
   url: text("url").notNull(),
   cta: text("cta").notNull().default("Visitar"),
+  /** Imagen de su sitio (la de vista previa), guardada en /public/img/aliados/. */
+  imagenUrl: text("imagen_url"),
+  imagenAlt: text("imagen_alt").notNull().default(""),
   orden: integer("orden").notNull().default(0),
   visible: boolean("visible").notNull().default(true),
   ...tiempos,

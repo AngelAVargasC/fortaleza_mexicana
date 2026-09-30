@@ -77,6 +77,8 @@ export interface Vecino {
   donde?: string;
   url: string;
   cta: string;
+  img?: string;
+  alt: string;
 }
 
 export type TipoPublicacion = "video" | "articulo" | "episodio";

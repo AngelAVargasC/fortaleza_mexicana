@@ -2,11 +2,13 @@
    que ya existe (mismo slug) no se toca, asi que se puede correr en
    produccion sin miedo a pisar lo editado en /admin.
    Uso: npm run db:semilla */
+import { and, eq, isNull } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import * as t from "../esquema";
 import { canales, enElFronton, producciones } from "./hub";
 import { catalogo } from "./experiencias";
+import { CANAL_ZUNZUNEGUI, videosZunzunegui } from "./publicaciones";
 
 function slugDe(texto: string) {
   return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
@@ -32,7 +34,7 @@ async function main() {
 
     db.insert(t.aliados).values(enElFronton.map((a, i) => ({
       slug: a.id, tipo: a.tipo, nombre: a.nombre, descripcion: a.desc, donde: a.donde ?? null,
-      url: a.url, cta: a.cta, orden: i,
+      url: a.url, cta: a.cta, imagenUrl: a.img ?? null, imagenAlt: a.alt ?? "", orden: i,
     }))).onConflictDoNothing({ target: t.aliados.slug }).returning({ id: t.aliados.id }),
 
     db.insert(t.experiencias).values(catalogo.map((x, i) => ({
@@ -44,8 +46,27 @@ async function main() {
     }))).onConflictDoNothing({ target: t.experiencias.slug }).returning({ id: t.experiencias.id }),
   ]);
 
+  // Imagenes que llegaron despues de la primera siembra: solo se llenan si
+  // siguen vacias, para no pisar lo que se haya cambiado en /admin.
+  for (const c of canales) {
+    if (c.img) await db.update(t.canales).set({ avatarUrl: c.img })
+      .where(and(eq(t.canales.slug, slugDe(c.nombre)), isNull(t.canales.avatarUrl)));
+  }
+  for (const a of enElFronton) {
+    if (a.img) await db.update(t.aliados).set({ imagenUrl: a.img, imagenAlt: a.alt ?? "" })
+      .where(and(eq(t.aliados.slug, a.id), isNull(t.aliados.imagenUrl)));
+  }
+
+  // Videos del canal de Zunzunegui, ligados a su canal.
+  const [canal] = await db.select({ id: t.canales.id }).from(t.canales).where(eq(t.canales.slug, CANAL_ZUNZUNEGUI)).limit(1);
+  const pubs = await db.insert(t.publicaciones).values(videosZunzunegui.map((v) => ({
+    slug: slugDe(v.titulo), tipo: "video" as const, titulo: v.titulo, resumen: v.resumen,
+    videoUrl: "https://www.youtube.com/watch?v=" + v.youtubeId, youtubeId: v.youtubeId,
+    canalId: canal?.id ?? null, estado: "publicado" as const, publicadaEn: new Date(v.publicadaEn),
+  }))).onConflictDoNothing({ target: t.publicaciones.slug }).returning({ id: t.publicaciones.id });
+
   const [p, c, a, x] = r.map((l) => l.length);
-  console.log(`[semilla] nuevas: ${p} producciones, ${c} canales, ${a} aliados, ${x} experiencias.`);
+  console.log(`[semilla] nuevas: ${p} producciones, ${c} canales, ${a} aliados, ${x} experiencias, ${pubs.length} publicaciones.`);
   await pool.end();
 }
 

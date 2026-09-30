@@ -8,6 +8,13 @@
       "when": 1790748302683,
       "tag": "0000_inicial",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790751334096,
+      "tag": "0001_imagen_aliados",
+      "breakpoints": true
     }
   ]
 }

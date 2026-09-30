@@ -87,6 +87,7 @@ export const canales: Canal[] = [
     nombre: "Juan Miguel Zunzunegui",
     tema: "Historia, filosofía y la identidad de México.",
     url: "https://www.youtube.com/@JMZunzu",
+    img: "/img/canales/juan-miguel-zunzunegui.jpg",
     plataforma: "YouTube",
   },
 ];
@@ -106,6 +107,8 @@ export interface Vecino {
   donde?: string;
   url: string;
   cta: string;
+  img?: string;
+  alt?: string;
 }
 
 export const enElFronton: Vecino[] = [
@@ -113,11 +116,13 @@ export const enElFronton: Vecino[] = [
     id: "malinche", tipo: "Teatro musical", nombre: "Malinche, el musical",
     desc: "La historia de Malinche contada con música en vivo, baile y una gran puesta en escena.",
     url: "https://malinchethemusical.com/", cta: "Ver la obra",
+    img: "/img/aliados/malinche.jpg", alt: "Cartel de Malinche, el musical: el título en dorado sobre un penacho de plumas",
   },
   {
     id: "pelota-mestiza", tipo: "Restaurante", nombre: "Pelota Mestiza",
     desc: "Cocina mexicana contemporánea, con ingredientes nativos y la memoria culinaria del país.",
     donde: "Tercer piso del Frontón", url: "https://pelotamestiza.com.mx/", cta: "Conocer el restaurante",
+    img: "/img/aliados/pelota-mestiza.jpg", alt: "Logotipo de Pelota Mestiza sobre un postre de chocolate con fresas y moras",
   },
 ];
 

@@ -85,14 +85,15 @@ export function RejillaCanales({ items }: { items: Canal[] }) {
 }
 
 
-/* Tambien en el Fronton: proyectos de terceros en la misma sede. Sin foto
-   (no tenemos derechos sobre la suya): rotulo, nombre, una linea y salida
-   a su sitio en pestana nueva. */
+/* Tambien en el Fronton: proyectos de terceros en la misma sede, con la
+   imagen de vista previa de su propio sitio (la que ellos publican para
+   compartir), rotulo, nombre, una linea y salida a su sitio. */
 export function TarjetasFronton({ items }: { items: Vecino[] }) {
   return (
     <>
       {items.map((v) => (
         <a className="vecino" href={v.url} target="_blank" rel="noopener" key={v.id}>
+          {v.img && <div className="vecino-img"><img src={v.img} alt={v.alt} loading="lazy" /></div>}
           <span className="vecino-tipo">{v.tipo}{v.donde ? " · " + v.donde : ""}</span>
           <h3 className="vecino-nom">{v.nombre}</h3>
           <p className="small">{v.desc}</p>
