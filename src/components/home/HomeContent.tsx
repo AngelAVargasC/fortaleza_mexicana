@@ -3,10 +3,9 @@ import { Footer } from "@/components/layout/Footer";
 import { Tarjetas } from "@/components/ui/Tarjetas";
 import { PortadasProduccion, TarjetasFronton } from "@/components/ui/Hub";
 import { Registro } from "@/components/ui/Registro";
-import { catalogo } from "@/content/experiencias";
-import { SEDE, cartelera, producciones, canales, enElFronton, CORREO_HUB } from "@/content/hub";
-
-const proxima = cartelera[0];
+import { TarjetasPublicacion } from "@/components/ui/Publicaciones";
+import { SEDE, CORREO_HUB } from "@/lib/sitio";
+import type { Canal, Experiencia, Funcion, Produccion, Publicacion, Vecino } from "@/lib/tipos";
 
 /* Home clasica de hub (DEC-028), sobre la estructura de MasterClass:
    portada de una pantalla con "que buscas hoy", que incluye, destacado en
@@ -58,7 +57,17 @@ const PREGUNTAS = [
   },
 ];
 
-export function HomeContent() {
+export interface DatosHome {
+  cartelera: Funcion[];
+  producciones: Produccion[];
+  canales: Canal[];
+  enElFronton: Vecino[];
+  catalogo: Experiencia[];
+  publicaciones: Publicacion[];
+}
+
+export function HomeContent({ cartelera, producciones, canales, enElFronton, catalogo, publicaciones }: DatosHome) {
+  const proxima = cartelera[0];
   return (
     <>
 {/* ══════════ PORTADA ══════════ */}
@@ -134,6 +143,17 @@ export function HomeContent() {
     <a className="btn btn-gris" href="/producciones" style={{ alignSelf: "center" }}>Ver todas las producciones</a>
   </div>
 </section>
+
+{/* ══════════ LO MÁS RECIENTE · PUBLICACIONES ══════════ */}
+{publicaciones.length > 0 && (
+<section className="sec" id="recientes">
+  <div className="wrap stack g8">
+    <h2 className="titular">Lo más reciente.<br /><span>Videos, artículos y episodios del hub.</span></h2>
+    <div className="pubs"><TarjetasPublicacion items={publicaciones} /></div>
+    <a className="btn btn-gris" href="/publicaciones" style={{ alignSelf: "center" }}>Ver todas las publicaciones</a>
+  </div>
+</section>
+)}
 
 {/* ══════════ EXPERIENCIAS · CHIPS + RIEL ══════════ */}
 <section className="sec" id="experiencias">

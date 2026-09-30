@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Ico } from "@/components/ui/Icons";
-import { BADGE_CLASE, ESTADO_CLASE, type Experiencia } from "@/content/experiencias";
+import { BADGE_CLASE, ESTADO_CLASE, type Experiencia } from "@/lib/tipos";
 
 function conSaltos(t: string) {
   const partes = t.split("\n");

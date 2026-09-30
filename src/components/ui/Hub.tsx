@@ -1,5 +1,5 @@
 import { Ico } from "@/components/ui/Icons";
-import { SEDE, type Canal, type Funcion, type Produccion, type Vecino } from "@/content/hub";
+import type { Canal, Funcion, Produccion, Vecino } from "@/lib/tipos";
 
 /* Piezas del hub (DEC-027). Reutilizan el marcado de las tarjetas de
    experiencias (.card, .badge, .meta, .estado) para heredar su estilo y el
@@ -48,7 +48,7 @@ export function FilasCartelera({ items }: { items: Funcion[] }) {
             <h3 className="h4">{f.titulo}</h3>
             <div className="meta">
               <span><Ico.Reloj /> {f.hora}</span>
-              <span><Ico.Pin /> {SEDE.nombre}</span>
+              <span><Ico.Pin /> {f.sede}</span>
             </div>
             {f.nota && <p className="small mut">{f.nota}</p>}
           </div>

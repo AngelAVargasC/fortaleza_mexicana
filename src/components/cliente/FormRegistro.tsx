@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { Ico } from "@/components/ui/Icons";
-import { CORREO } from "@/content/hub";
+import { CORREO } from "@/lib/sitio";
 
 /* Formulario de registro. Dos modos sobre el mismo envio (/api/registro):
    - "calendario": recibir el calendario de actividades por WhatsApp o correo.

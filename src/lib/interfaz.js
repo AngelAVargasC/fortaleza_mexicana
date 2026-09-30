@@ -1,4 +1,3 @@
-/* eslint-disable */
 /* INTERFAZ: revelado bidireccional, desplegable, filtros, carrusel. Corre en todas las paginas. */
 export function initInterfaz() {
   "use strict";

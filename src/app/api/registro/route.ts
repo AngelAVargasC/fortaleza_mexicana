@@ -1,8 +1,12 @@
-/* Registro de suscripciones (calendario) y de miembros. El sitio no guarda
-   datos: valida y reenvia el registro a REGISTRO_WEBHOOK_URL (una hoja de
-   Google via Apps Script, Make, Zapier... ver web/README.md). Sin esa
-   variable responde 503 y el formulario ofrece el envio por correo: nunca
-   se confirma un alta que no quedo guardada. */
+import { sql } from "drizzle-orm";
+import { db, hayBase } from "@/db/cliente";
+import { registros } from "@/db/esquema";
+
+/* Registro de suscripciones (calendario) y de miembros, en PostgreSQL
+   (DEC-030; antes iba a un webhook, DEC-029). Registrarse otra vez con el
+   mismo contacto actualiza la fila y la reactiva si se habia dado de baja.
+   Si la base no responde, 503: el formulario ofrece el envio por correo y
+   nunca se confirma un alta que no quedo guardada. */
 
 const MEDIOS = ["whatsapp", "correo"];
 const TIPOS = ["calendario", "miembro"];
@@ -49,34 +53,33 @@ export async function POST(req: Request) {
     ? d.intereses.filter((i): i is string => typeof i === "string" && INTERESES.includes(i))
     : [];
 
-  const registro = {
-    fecha: new Date().toISOString(),
-    tipo,
+  const fila = {
+    tipo: tipo as "calendario" | "miembro",
     nombre,
-    medio,
-    contacto,
-    oficio: texto(d.oficio, 120),
-    intereses: intereses.join(", "),
-    calendario: tipo === "calendario" || d.calendario === true ? "si" : "no",
-    ref: texto(d.ref, 40),
+    medio: medio as "whatsapp" | "correo",
+    contacto: medio === "correo" ? contacto.toLowerCase() : contacto,
+    oficio: texto(d.oficio, 120) || null,
+    intereses,
+    calendario: tipo === "calendario" || d.calendario === true,
+    ref: texto(d.ref, 40) || null,
   };
 
-  const destino = process.env.REGISTRO_WEBHOOK_URL;
-  if (!destino) {
-    console.error("[registro] REGISTRO_WEBHOOK_URL no esta configurada; registro no guardado");
+  if (!hayBase()) {
+    console.error("[registro] DATABASE_URL no esta configurada; registro no guardado");
     return error("Registro no disponible.", 503);
   }
 
   try {
-    const r = await fetch(destino, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...registro, clave: process.env.REGISTRO_WEBHOOK_CLAVE ?? "" }),
+    await db().insert(registros).values(fila).onConflictDoUpdate({
+      target: [registros.tipo, registros.medio, registros.contacto],
+      set: {
+        nombre: fila.nombre, oficio: fila.oficio, intereses: fila.intereses, calendario: fila.calendario,
+        ref: sql`coalesce(${registros.ref}, excluded.ref)`, aceptoEn: new Date(), bajaEn: null,
+      },
     });
-    if (!r.ok) throw new Error("webhook " + r.status);
   } catch (e) {
-    console.error("[registro] fallo el envio al webhook:", e);
-    return error("Registro no disponible.", 502);
+    console.error("[registro] no se pudo guardar:", e);
+    return error("Registro no disponible.", 503);
   }
 
   return Response.json({ ok: true });

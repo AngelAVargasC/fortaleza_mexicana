@@ -1,48 +1,48 @@
 # web/ — Fortaleza Mexicana en Next.js
 
-Lee primero `../CLAUDE.md` y `../BITACORA.md`. Next.js 16, App Router,
-TypeScript, `src/`, todo estático. **Hub clásico con MasterClass de
-referencia** (DEC-028): barra fija, home por secciones, sin motor 3D. La
+Lee primero `../CLAUDE.md`, `../BITACORA.md` y **`ARQUITECTURA.md`**.
+Next.js 16, App Router, TypeScript, `src/`, sobre **PostgreSQL + Drizzle**
+(DEC-030). **Hub clásico con MasterClass de referencia** (DEC-028). La
 versión inmersiva (cerebro 3D, placas) está en `../baul/v3-web-inmersiva/`.
 
 ## Mapa
 
 ```
+drizzle/                      migraciones SQL versionadas (las genera db:generar)
+scripts/                      migrar.mjs (al arrancar) · crear-admin.ts
 src/
-├── app/                      una carpeta por ruta, cada page.tsx con su metadata
-│   ├── page.tsx              /            (monta components/home/HomeContent)
-│   ├── cartelera/            /cartelera   (Frontón México)
-│   ├── producciones/         /producciones (#podcast #animacion #de-pequeno-a-gigante #creo-en-ti)
-│   ├── canales/              /canales
-│   ├── experiencias/         /experiencias y pensar-el-presente/ (detalle)
-│   ├── membresia/ institucion/ contacto/
-│   ├── registro/             /registro    (destino del QR de registro)
-│   ├── qr/                   /qr          (genera los QR; noindex, sin enlace)
-│   ├── api/registro/         POST: valida y reenvía a REGISTRO_WEBHOOK_URL
-│   └── layout.tsx            CSS global, <Nav />, <Interfaz />
-├── components/
-│   ├── layout/               Nav (barra + desplegable «Explorar»), Footer
-│   ├── home/HomeContent.tsx  la home, secciones en orden
-│   ├── ui/                   Icons, Tarjetas (tarjeta de experiencia), Hub
-│   │                         (portadas de producción, cartelera, canales,
-│   │                         También en el Frontón), Registro (bloque)
-│   └── cliente/              Client Components: Interfaz (arranca
-│                             lib/interfaz.js), FiltroDesdeHash,
-│                             FormRegistro, CodigosQR
-├── content/                  DATOS. Única fuente:
-│   ├── hub.ts                cartelera, producciones, canales, enElFronton
-│   └── experiencias.ts       workshops, cursos, eventos
-├── lib/interfaz.js           revelado, desplegable, filtros y carrusel
-│                             (#vermas #panel .chip[data-f] #carril #prev #next)
-└── styles/                   global.css (tokens, tipografía, botones, tarjetas,
-                              carril, revelado) · subpaginas · detalle ·
-                              institucion · hub · clasico.css (maqueta del hub,
-                              se carga la última)
+├── app/
+│   ├── layout.tsx            raiz: <html>, global.css
+│   ├── (sitio)/              sitio publico: layout con Nav + Interfaz + CSS
+│   │   ├── page.tsx          /  (lee de la base y monta HomeContent)
+│   │   ├── publicaciones/    /publicaciones y /publicaciones/[slug]
+│   │   ├── cartelera/ producciones/ canales/ experiencias/ membresia/
+│   │   ├── registro/         destino del QR de registro
+│   │   ├── qr/               genera los QR (noindex, sin enlace)
+│   │   └── institucion/ contacto/  (estaticas)
+│   ├── admin/                panel: layout propio (admin.css, noindex)
+│   │   ├── entrar/           login
+│   │   └── (panel)/          con sesion: tablero, [recurso], [recurso]/[id],
+│   │                         registros (+ exportar CSV), equipo
+│   └── api/registro/         POST de los formularios -> tabla registros
+├── db/                       esquema.ts (tablas) · cliente.ts (pool) · semilla/
+├── server/                   solo servidor: contenido.ts (lecturas publicas con
+│                             cache por etiqueta) · auth.ts (sesiones) · clave.ts
+├── admin/                    recursos.ts (config del panel) · servidor.ts ·
+│                             acciones.ts (Server Actions) · ui/ (formularios)
+├── lib/                      tipos.ts (formas de vista) · sitio.ts (constantes)
+│                             · youtube.ts · interfaz.js (revelado, carrusel...)
+├── components/               layout/ (Nav, Footer) · home/HomeContent · ui/
+│                             (Tarjetas, Hub, Publicaciones, Registro, Icons) ·
+│                             cliente/ (Interfaz, FormRegistro, CodigosQR,
+│                             VideoYouTube, FiltroDesdeHash)
+└── styles/                   global · subpaginas · detalle · institucion · hub
+                              · clasico (sitio) · admin (panel)
 public/  img/ (bb-NN.webp del brandbook, hero-fondo, hero-figura) · marca/ · fonts/
 ```
 
-Listas vacías en `content/hub.ts` = estado «por anunciar» / «en integración»;
-al llenarlas, la home y su página se actualizan solas.
+Tabla vacía = estado «por anunciar» / «en integración» en el sitio; al
+publicar desde `/admin`, la home y su página se actualizan solas.
 
 ## Reglas
 
@@ -51,8 +51,13 @@ al llenarlas, la home y su página se actualizan solas.
 - Las clases CSS son globales a propósito. Antes de renombrar una, buscarla en
   `src/lib/interfaz.js`.
 - `npm run dev` para trabajar, `npm run build` antes de entregar.
-- Despliegue: Railway, Root Directory = `/web`, `npm run build` + `npm start`.
-- El registro (DEC-029) nunca confirma un alta que no llegó al webhook.
+- Despliegue: Railway (este repo es `web/`: Root Directory vacío), `npm run build` + `npm start`
+  (migra y arranca), `DATABASE_URL` = `${{Postgres.DATABASE_URL}}`.
+- El registro nunca confirma un alta que no quedó guardada.
+- Los componentes solo conocen `src/lib/tipos.ts`; las tablas, solo
+  `src/server/` y `src/admin/`. Nada del cliente importa `src/db/`.
+- Toda Server Action del panel empieza por `requerirUsuario()`.
+- Módulo nuevo: ver «Sumar un módulo nuevo» en `ARQUITECTURA.md`.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

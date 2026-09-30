@@ -34,6 +34,7 @@ export const Ico = {
   Reloj: () => <Base><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></Base>,
   Micro: () => <Base><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v3" /></Base>,
   Play: () => <Base><circle cx="12" cy="12" r="9" /><path d="M10 8.5v7l6-3.5z" /></Base>,
+  Reproducir: () => <Base fill="currentColor" stroke="none"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" /></Base>,
   Red: () => <Base><circle cx="9" cy="8" r="3" /><circle cx="17" cy="9" r="2.5" /><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.9 6 5" /></Base>,
   Ticket: () => <Base><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z" /><path d="M14 6v12" /></Base>,
   Libro: () => <Base><path d="M4 5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z" /><path d="M4 19V5" /></Base>,

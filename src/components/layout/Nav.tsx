@@ -15,6 +15,7 @@ export function Nav() {
     </button>
     <nav className="barra-links" aria-label="Secciones">
       <a href="/cartelera">Cartelera</a>
+      <a href="/publicaciones">Publicaciones</a>
       <a href="/producciones">Producciones</a>
       <a href="/canales">Canales</a>
       <a href="/experiencias">Experiencias</a>
@@ -30,6 +31,7 @@ export function Nav() {
     <div className="desp-col">
       <span className="desp-tit">Contenidos</span>
       <a href="/cartelera">Cartelera · Frontón México</a>
+      <a href="/publicaciones">Publicaciones y videos</a>
       <a href="/producciones">Producciones propias</a>
       <a href="/canales">Canales afines</a>
       <a href="/#calendario">Recibir el calendario</a>
