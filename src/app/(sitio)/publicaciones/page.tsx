@@ -47,7 +47,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
       ))}
     </nav>
     {items.length > 0 ? (
-      <div className="pubs"><TarjetasPublicacion items={items} /></div>
+      <div className="pubs pubs-lista"><TarjetasPublicacion items={items} /></div>
     ) : (
       <div className="funciones">
         <div className="funcion vacia">

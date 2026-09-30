@@ -50,6 +50,8 @@ export function initInterfaz() {
 
     function pon(on) {
       panel.classList.toggle("on", on);
+      /* en celular el panel ocupa la pantalla: la pagina de abajo no se mueve */
+      document.documentElement.classList.toggle("con-panel", on);
       vermas.setAttribute("aria-expanded", String(on));
       vermas.firstElementChild.textContent = on ? "Cerrar" : etiqueta;
     }

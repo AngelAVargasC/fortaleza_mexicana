@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "@/styles/global.css";
 
@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   },
   description:
     "Contenidos, programas y eventos para desarrollar tu criterio, ampliar tu visión y conectar con una comunidad que construye el futuro.",
+  appleWebApp: { capable: true, title: "Fortaleza", statusBarStyle: "black-translucent" },
+  formatDetection: { telephone: false },
+};
+
+/* Celular primero: el color de la barra del sistema es Piedra y el sitio
+   ocupa toda la pantalla, muesca incluida (movil.css respeta los
+   safe-area-inset). */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#171512",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

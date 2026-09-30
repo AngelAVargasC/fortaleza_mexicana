@@ -1,0 +1,161 @@
+/* ── Celular primero (DEC-031) ───────────────────────────────────────────
+   El 90% de las visitas llega desde el celular: aqui el hub se comporta
+   como app. Barra inferior con cinco destinos, rieles que se deslizan con
+   el dedo en vez de listas largas, menu a pantalla completa, margenes y
+   tipografia de telefono, zonas seguras (muesca, barra de gestos) y
+   objetivos tactiles de 44 px. Se carga la ultima; casi todo vive bajo
+   max-width:759px para no tocar el escritorio. */
+
+/* ── Barra inferior (BarraMovil) ── */
+.tabbar{display:none;}
+
+@media(max-width:759px){
+  :root{--nav-h:60px;--margin:18px;--tab-h:62px;}
+
+  /* toques sin destello azul; nada de zoom de iOS al enfocar un campo */
+  html{-webkit-tap-highlight-color:transparent;}
+  input,select,textarea{font-size:16px!important;}
+
+  body{padding-bottom:calc(var(--tab-h) + env(safe-area-inset-bottom));}
+
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;inset:auto 0 0;z-index:70;
+    height:calc(var(--tab-h) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);
+    background:rgba(23,21,18,.94);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);
+    border-top:1px solid rgba(230,217,200,.09);}
+  .tabbar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+    font-family:var(--f-ui);font-size:.6875rem;font-weight:600;letter-spacing:.01em;color:var(--txt-2);
+    transition:color var(--dur);position:relative;}
+  .tabbar svg{width:22px;height:22px;transition:transform var(--dur) var(--ease);}
+  .tabbar a:active svg{transform:scale(.88);}
+  .tabbar a.on{color:var(--coral);}
+  .tabbar a.on::before{content:"";position:absolute;top:0;left:30%;right:30%;height:2px;border-radius:0 0 2px 2px;background:var(--coral);}
+
+  /* ── Barra superior: marca a la izquierda, menu a la derecha ── */
+  .barra-in{padding-inline:var(--margin);gap:var(--s3);padding-top:env(safe-area-inset-top);}
+  .barra{height:calc(var(--nav-h) + env(safe-area-inset-top));}
+  .barra .marca img{height:32px;}
+  .barra-cta{display:none;}
+  .explorar{margin-left:auto;height:40px;padding:0 var(--s4);}
+
+  /* ── Menu a pantalla completa ── */
+  .desplegable{inset:calc(var(--nav-h) + env(safe-area-inset-top)) 0 0;overflow-y:auto;overscroll-behavior:contain;
+    background:rgba(23,21,18,.985);}
+  .desp-in{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s8) var(--s5);
+    padding:var(--s6) var(--margin) calc(var(--tab-h) + var(--s10) + env(safe-area-inset-bottom));}
+  .desp-col{gap:2px;}
+  .desp-col a{font-size:1rem;padding-block:8px;width:auto;}
+  html.con-panel{overflow:hidden;}
+
+  /* ── Ritmo vertical de telefono ── */
+  .sec{padding-block:var(--s12);}
+  .g10{gap:var(--s8);}
+  .titular{font-size:1.5rem;line-height:1.18;}
+  .h2.grande{font-size:1.6rem;}
+  .lead{font-size:1rem;}
+  .riel-tit{font-size:.9375rem;}
+  .eyebrow{font-size:1rem;letter-spacing:.08em;}
+
+  /* ── Portada: la foto arriba, el texto sobre el degradado ── */
+  .portada{min-height:auto;align-items:flex-end;}
+  .portada-in{padding-top:30svh;padding-bottom:var(--s8);}
+  .portada-tit{font-size:2.15rem;}
+  .portada-txt{gap:var(--s4);}
+  .intenciones a{padding:13px var(--s4);min-height:48px;}
+
+  /* ── Botones: parejas a lo ancho, faciles de tocar ── */
+  .row > .btn-lg{flex:1 1 auto;justify-content:center;}
+  .btn{min-height:44px;}
+  .btn:active,.intenciones a:active,.pub:active,.vecino:active,.portada-card:active,.card:active{transform:scale(.98);}
+
+  /* ── Rieles que se deslizan: videos, Fronton, mas publicaciones ── */
+  .riel-movil{display:grid;grid-auto-flow:column;grid-template-columns:none;
+    grid-auto-columns:82%;gap:var(--s3);overflow-x:auto;overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;scroll-padding-inline:var(--margin);scrollbar-width:none;
+    margin-inline:calc(-1 * var(--margin));padding-inline:var(--margin);padding-bottom:4px;}
+  .riel-movil::-webkit-scrollbar{display:none;}
+  .riel-movil > *{scroll-snap-align:start;min-width:0;}
+  .pubs.riel-movil{grid-auto-columns:78%;}
+
+  /* experiencias: mismo gesto, tarjetas a 3/4 de pantalla */
+  #experiencias .carril,.otras .carril{grid-auto-columns:72%;margin-inline:calc(-1 * var(--margin));
+    padding-inline:var(--margin);scroll-padding-inline:var(--margin);gap:var(--s3);}
+  .flecha{display:none;}
+
+  /* ── Chips en una sola fila deslizable ── */
+  .chips-cat,.chips-fila{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;
+    margin-inline:calc(-1 * var(--margin));padding-inline:var(--margin);}
+  .chips-cat::-webkit-scrollbar,.chips-fila::-webkit-scrollbar{display:none;}
+  .chip{flex:none;height:40px;}
+
+  /* ── Lista de publicaciones: miniatura a la izquierda, como app de video ── */
+  .pubs-lista{grid-template-columns:minmax(0,1fr);gap:var(--s4);}
+  .pubs-lista .pub{display:grid;grid-template-columns:44% minmax(0,1fr);gap:var(--s3);align-items:start;}
+  .pubs-lista .pub-img{border-radius:var(--r-sm);}
+  .pubs-lista .pub-play{width:28px;height:28px;left:6px;bottom:6px;}
+  .pubs-lista .pub-play svg{width:12px;height:12px;}
+  .pubs-lista .pub-txt{display:flex;flex-direction:column;gap:4px;}
+  .pubs-lista .pub-tit{font-size:.9375rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  .pub-tit{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+
+  /* ── Fronton, cartelera, producciones ── */
+  .vecino{padding:var(--s5);}
+  .vecino-img{margin:calc(-1 * var(--s5)) calc(-1 * var(--s5)) var(--s2);}
+  .vecino-nom{font-size:1.25rem;}
+  .banda-dest-txt{padding:var(--s6) var(--s5);}
+  .funcion{padding-block:var(--s5);}
+  .portadas{gap:var(--s3);}
+  .portada-card-txt{padding:var(--s4) var(--s3);}
+  .portada-card h3{font-size:1rem;}
+
+  /* ── Canales ── */
+  .hub-banda{padding:var(--s6) var(--s5);gap:var(--s6);}
+  .hub-banda-fig{display:none;}
+
+  /* catalogo de experiencias: foto apaisada, la ficha entra en una pantalla */
+  .rejilla{gap:var(--s4);}
+  .rejilla .card-img{aspect-ratio:16/10;}
+
+  /* canal en /canales: fila con avatar redondo, como tarjeta de contacto */
+  .rejilla .canal{flex-direction:row;align-items:center;gap:var(--s4);padding:var(--s4);}
+  .rejilla .canal .card-img{flex:none;width:84px;height:84px;aspect-ratio:1;border-radius:50%;}
+  .rejilla .canal .card-body{padding:0;gap:var(--s2);}
+  .rejilla .canal .card-foot{padding-top:var(--s2);}
+
+  /* ── Registro y membresia ── */
+  .registro{padding:var(--s6) var(--s5);gap:var(--s6);border-radius:var(--r-lg);}
+  .empieza{padding-block:var(--s12);}
+  .insc{padding:var(--s8) var(--s5);}
+
+  /* ── Cabeceras de subpagina ── */
+  .cab-chica{padding:calc(var(--nav-h) + var(--s8)) 0 var(--s8);}
+  .cab-chica .h1,.cab-foto .h1{font-size:2.1rem;}
+  .cab-foto{min-height:62svh;}
+  .cab-foto .wrap{padding-block:var(--s10) var(--s8);}
+  .pub-h1{font-size:1.75rem;}
+  .video{margin-inline:calc(-1 * var(--margin));border-radius:0;}
+  .video-boton{width:64px;height:64px;}
+
+  /* ── Preguntas ── */
+  .faq summary{padding-block:var(--s4);min-height:48px;}
+
+  /* ── Pie: dos columnas, marca arriba ── */
+  footer{padding-block:var(--s10) var(--s6);}
+  .foot{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s8) var(--s5);}
+  .foot > div:first-child{grid-column:1/-1;}
+  .foot ul{gap:4px;}
+  .foot a{display:inline-block;padding-block:6px;overflow-wrap:anywhere;}
+  .legal{flex-direction:column;gap:var(--s2);margin-top:var(--s8);}
+}
+
+/* A una columna (celular y tableta) el titulo lateral ya no se queda pegado:
+   pegado encima de su propia lista la tapaba al hacer scroll. */
+@media(max-width:999px){
+  .dos .pegado{position:static;}
+  .dos{gap:var(--s6);}
+}
+
+/* Pantallas tactiles: sin levantar tarjetas al "pasar" (no hay puntero). */
+@media(hover:none){
+  .card:hover,.portada-card:hover,.vecino:hover{transform:none;}
+  .pub:hover .pub-img img,.portada-card:hover img,.vecino:hover .vecino-img img{transform:none;}
+}

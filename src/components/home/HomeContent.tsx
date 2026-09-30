@@ -130,7 +130,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
     </article>
     <div className="stack g5">
       <p className="riel-tit">También en el {SEDE.nombre}</p>
-      <div className="vecinos"><TarjetasFronton items={enElFronton} /></div>
+      <div className="vecinos riel-movil"><TarjetasFronton items={enElFronton} /></div>
     </div>
   </div>
 </section>
@@ -149,7 +149,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
 <section className="sec" id="recientes">
   <div className="wrap stack g8">
     <h2 className="titular">Lo más reciente.<br /><span>Videos, artículos y episodios del hub.</span></h2>
-    <div className="pubs"><TarjetasPublicacion items={publicaciones} /></div>
+    <div className="pubs riel-movil"><TarjetasPublicacion items={publicaciones} /></div>
     <a className="btn btn-gris" href="/publicaciones" style={{ alignSelf: "center" }}>Ver todas las publicaciones</a>
   </div>
 </section>

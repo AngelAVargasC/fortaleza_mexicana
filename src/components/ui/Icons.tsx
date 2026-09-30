@@ -19,6 +19,8 @@ function Base({ children, ...rest }: SVGProps<SVGSVGElement>) {
 }
 
 export const Ico = {
+  Casa: () => <Base><path d="M3 10.5 12 3l9 7.5" /><path d="M5 9v11h5v-6h4v6h5V9" /></Base>,
+  Persona: () => <Base><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" /></Base>,
   Chev: () => <Base><path d="M6 9l6 6 6-6" /></Base>,
   Flecha: () => <Base><path d="M5 12h14M13 6l6 6-6 6" /></Base>,
   Izq: () => <Base><path d="M15 6l-6 6 6 6" /></Base>,

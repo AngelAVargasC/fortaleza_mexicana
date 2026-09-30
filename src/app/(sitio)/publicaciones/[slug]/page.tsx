@@ -60,7 +60,7 @@ export default async function Page({ params }: Props) {
 <section className="sec" style={{ paddingTop: "0" }}>
   <div className="wrap stack g8">
     <p className="riel-tit">Más publicaciones <a href="/publicaciones">Ver todas</a></p>
-    <div className="pubs"><TarjetasPublicacion items={otras} /></div>
+    <div className="pubs riel-movil"><TarjetasPublicacion items={otras} /></div>
   </div>
 </section>
 )}
