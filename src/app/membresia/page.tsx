@@ -1,6 +1,7 @@
 import { Ico } from "@/components/ui/Icons";
 import { Footer } from "@/components/layout/Footer";
 import { Tarjetas } from "@/components/ui/Tarjetas";
+import { Registro } from "@/components/ui/Registro";
 import { proximas, catalogo } from "@/content/experiencias";
 
 export const metadata = {
@@ -42,7 +43,7 @@ export default function Page() {
         <li><Ico.Check /><span><strong>Descuentos en experiencias.</strong> Precio preferente en workshops, cursos y eventos abiertos.</span></li>
         <li><Ico.Check /><span><strong>Prioridad de inscripción.</strong> Las ediciones con cupo se abren primero a miembros.</span></li>
       </ul>
-      <span className="aviso rv"><Ico.Reloj /> Cuota anual y fecha de apertura por confirmar. Las primeras plazas se anuncian por correo.</span>
+      <span className="aviso rv"><Ico.Reloj /> Cuota anual y fecha de apertura por confirmar. Las primeras plazas se anuncian a quienes se registren.</span>
     </div>
   </div>
 </section>
@@ -54,7 +55,7 @@ export default function Page() {
       <p className="lead" style={{ maxWidth: "44ch" }}>Tres pasos, sin letra pequeña.</p>
     </div>
     <div className="pasos">
-      <div className="paso rv"><span className="n">01</span><h3>Solicitas tu lugar</h3><p>Nos escribes con tu nombre y a qué te dedicas. No hay filtro de perfil: hay filtro de cupo.</p></div>
+      <div className="paso rv"><span className="n">01</span><h3>Solicitas tu lugar</h3><p>Te registras con tu nombre y a qué te dedicas. No hay filtro de perfil: hay filtro de cupo.</p></div>
       <div className="paso rv"><span className="n">02</span><h3>Recibes la carta de bienvenida</h3><p>Con las fechas de los encuentros del semestre, el acceso a los materiales y el directorio.</p></div>
       <div className="paso rv"><span className="n">03</span><h3>Eliges tu primera experiencia</h3><p>Con precio preferente y prioridad de inscripción desde el primer día.</p></div>
     </div>
@@ -79,15 +80,13 @@ export default function Page() {
 
 <section className="sec">
   <div className="wrap">
-    <div className="insc rv">
-      <span className="orn" aria-hidden="true"></span>
-      <div className="stack g3">
-        <span className="eyebrow">Únete</span>
-        <h2 className="h2">Pide tu lugar en la primera generación.</h2>
-        <p className="lead" style={{ maxWidth: "52ch" }}>Te contestamos con la cuota, la fecha de apertura y el calendario de encuentros en cuanto estén confirmados.</p>
-      </div>
-      <a className="btn btn-lg" href="mailto:hola@fortalezamexicana.mx?subject=Membres%C3%ADa%20%C2%B7%20Solicitud%20de%20lugar">Solicitar por correo <Ico.Flecha /></a>
-    </div>
+    <Registro
+      modo="miembro"
+      id="registro"
+      eyebrow="Únete"
+      titulo={<>Pide tu lugar en<br />la primera generación.</>}
+      texto="Te escribimos con la cuota, la fecha de apertura y el calendario de encuentros en cuanto estén confirmados."
+    />
   </div>
 </section>
 

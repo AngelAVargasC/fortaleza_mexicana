@@ -1,7 +1,8 @@
 import { Ico } from "@/components/ui/Icons";
 import { Footer } from "@/components/layout/Footer";
-import { FilasCartelera } from "@/components/ui/Hub";
-import { SEDE, cartelera, CORREO_CARTELERA } from "@/content/hub";
+import { FilasCartelera, TarjetasFronton } from "@/components/ui/Hub";
+import { Registro } from "@/components/ui/Registro";
+import { SEDE, cartelera, enElFronton } from "@/content/hub";
 
 export const metadata = {
   title: "Cartelera · Frontón México",
@@ -38,16 +39,24 @@ export default function Page() {
 </section>
 
 <section className="sec" style={{ paddingTop: "0" }}>
-  <div className="wrap">
-    <div className="insc rv">
-      <span className="orn" aria-hidden="true"></span>
-      <div className="stack g3">
-        <span className="eyebrow">Avísame</span>
-        <h2 className="h2">Entérate primero de cada función.</h2>
-        <p className="lead" style={{ maxWidth: "52ch" }}>Escríbenos y te avisamos por correo cuando se abra la venta de boletos.</p>
-      </div>
-      <a className="btn btn-lg" href={CORREO_CARTELERA}>Quiero enterarme <Ico.Flecha /></a>
+  <div className="wrap stack g8">
+    <div className="between rv">
+      <span className="eyebrow e-coral">También en el {SEDE.nombre}</span>
+      <p className="lead" style={{ maxWidth: "44ch" }}>Una noche completa: la obra, la mesa y la conversación, en el mismo edificio.</p>
     </div>
+    <div className="vecinos rv"><TarjetasFronton items={enElFronton} /></div>
+  </div>
+</section>
+
+<section className="sec" style={{ paddingTop: "0" }}>
+  <div className="wrap">
+    <Registro
+      modo="calendario"
+      id="calendario"
+      eyebrow="Avísame"
+      titulo={<>Entérate primero<br />de cada función.</>}
+      texto="Te avisamos por WhatsApp o por correo en cuanto se confirme una fecha y se abra la venta de boletos."
+    />
   </div>
 </section>
 </main>

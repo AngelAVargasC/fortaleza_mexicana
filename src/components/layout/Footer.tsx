@@ -26,6 +26,7 @@ export function Footer() {
           <li><a href="/cartelera">Cartelera</a></li>
           <li><a href="/producciones">Producciones</a></li>
           <li><a href="/canales">Canales afines</a></li>
+          <li><a href="/#calendario">Recibir el calendario</a></li>
         </ul>
       </div>
       <div>
@@ -35,6 +36,7 @@ export function Footer() {
           <li><a href="/experiencias#curso">Cursos</a></li>
           <li><a href="/experiencias#evento">Eventos</a></li>
           <li><a href="/membresia">Membresía</a></li>
+          <li><a href="/registro">Regístrate</a></li>
         </ul>
       </div>
       <div>

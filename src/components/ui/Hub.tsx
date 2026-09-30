@@ -1,5 +1,5 @@
 import { Ico } from "@/components/ui/Icons";
-import { SEDE, type Canal, type Funcion, type Produccion } from "@/content/hub";
+import { SEDE, type Canal, type Funcion, type Produccion, type Vecino } from "@/content/hub";
 
 /* Piezas del hub (DEC-027). Reutilizan el marcado de las tarjetas de
    experiencias (.card, .badge, .meta, .estado) para heredar su estilo y el
@@ -78,6 +78,25 @@ export function RejillaCanales({ items }: { items: Canal[] }) {
               <span className="lnk lnk-blanco" aria-hidden="true"><Ico.Flecha /></span>
             </div>
           </div>
+        </a>
+      ))}
+    </>
+  );
+}
+
+
+/* Tambien en el Fronton: proyectos de terceros en la misma sede. Sin foto
+   (no tenemos derechos sobre la suya): rotulo, nombre, una linea y salida
+   a su sitio en pestana nueva. */
+export function TarjetasFronton({ items }: { items: Vecino[] }) {
+  return (
+    <>
+      {items.map((v) => (
+        <a className="vecino" href={v.url} target="_blank" rel="noopener" key={v.id}>
+          <span className="vecino-tipo">{v.tipo}{v.donde ? " · " + v.donde : ""}</span>
+          <h3 className="vecino-nom">{v.nombre}</h3>
+          <p className="small">{v.desc}</p>
+          <span className="vecino-cta">{v.cta} <Ico.Externo /></span>
         </a>
       ))}
     </>

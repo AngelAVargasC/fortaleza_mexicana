@@ -16,16 +16,21 @@ src/
 │   ├── canales/              /canales
 │   ├── experiencias/         /experiencias y pensar-el-presente/ (detalle)
 │   ├── membresia/ institucion/ contacto/
+│   ├── registro/             /registro    (destino del QR de registro)
+│   ├── qr/                   /qr          (genera los QR; noindex, sin enlace)
+│   ├── api/registro/         POST: valida y reenvía a REGISTRO_WEBHOOK_URL
 │   └── layout.tsx            CSS global, <Nav />, <Interfaz />
 ├── components/
 │   ├── layout/               Nav (barra + desplegable «Explorar»), Footer
 │   ├── home/HomeContent.tsx  la home, secciones en orden
 │   ├── ui/                   Icons, Tarjetas (tarjeta de experiencia), Hub
-│   │                         (portadas de producción, cartelera, canales)
+│   │                         (portadas de producción, cartelera, canales,
+│   │                         También en el Frontón), Registro (bloque)
 │   └── cliente/              Client Components: Interfaz (arranca
-│                             lib/interfaz.js), FiltroDesdeHash
+│                             lib/interfaz.js), FiltroDesdeHash,
+│                             FormRegistro, CodigosQR
 ├── content/                  DATOS. Única fuente:
-│   ├── hub.ts                cartelera, producciones, canales (DEC-027)
+│   ├── hub.ts                cartelera, producciones, canales, enElFronton
 │   └── experiencias.ts       workshops, cursos, eventos
 ├── lib/interfaz.js           revelado, desplegable, filtros y carrusel
 │                             (#vermas #panel .chip[data-f] #carril #prev #next)
@@ -47,6 +52,7 @@ al llenarlas, la home y su página se actualizan solas.
   `src/lib/interfaz.js`.
 - `npm run dev` para trabajar, `npm run build` antes de entregar.
 - Despliegue: Railway, Root Directory = `/web`, `npm run build` + `npm start`.
+- El registro (DEC-029) nunca confirma un alta que no llegó al webhook.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

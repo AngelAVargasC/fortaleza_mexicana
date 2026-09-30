@@ -83,10 +83,48 @@ export interface Canal {
   plataforma: "YouTube" | "Podcast" | "Medio" | "Otro";
 }
 
-/** Vacia hasta tener la lista confirmada de creadores y canales. */
-export const canales: Canal[] = [];
+/** Solo los confirmados por el cliente. */
+export const canales: Canal[] = [
+  {
+    nombre: "Juan Miguel Zunzunegui",
+    tema: "Historia, filosofía y la identidad de México.",
+    url: "https://www.youtube.com/@JMZunzu",
+    plataforma: "YouTube",
+  },
+];
+
+/* ── Tambien en el Fronton ──
+   Lo que ya ocurre en la misma sede y el cliente pidio enlazar. Son
+   proyectos de terceros: se describe lo que son y se enlaza a su sitio;
+   fechas, precios y horarios los da cada sitio, no este. */
+
+export interface Vecino {
+  id: string;
+  /** Rotulo corto: "Teatro musical", "Restaurante". */
+  tipo: string;
+  nombre: string;
+  desc: string;
+  /** Donde esta dentro del Fronton, si aplica. */
+  donde?: string;
+  url: string;
+  cta: string;
+}
+
+export const enElFronton: Vecino[] = [
+  {
+    id: "malinche", tipo: "Teatro musical", nombre: "Malinche, el musical",
+    desc: "La historia de Malinche contada con música en vivo, baile y una gran puesta en escena.",
+    url: "https://malinchethemusical.com/", cta: "Ver la obra",
+  },
+  {
+    id: "pelota-mestiza", tipo: "Restaurante", nombre: "Pelota Mestiza",
+    desc: "Cocina mexicana contemporánea, con ingredientes nativos y la memoria culinaria del país.",
+    donde: "Tercer piso del Frontón", url: "https://pelotamestiza.com.mx/", cta: "Conocer el restaurante",
+  },
+];
 
 export const CORREO_HUB =
   "mailto:hola@fortalezamexicana.mx?subject=Hub%20%C2%B7%20Sumar%20mi%20canal";
-export const CORREO_CARTELERA =
-  "mailto:hola@fortalezamexicana.mx?subject=Cartelera%20%C2%B7%20Av%C3%ADsenme%20de%20las%20fechas";
+/** Buzon al que cae el registro si el formulario no puede enviarse. */
+export const CORREO = "hola@fortalezamexicana.mx";
+

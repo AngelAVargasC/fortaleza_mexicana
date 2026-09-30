@@ -32,6 +32,7 @@ export function Nav() {
       <a href="/cartelera">Cartelera · Frontón México</a>
       <a href="/producciones">Producciones propias</a>
       <a href="/canales">Canales afines</a>
+      <a href="/#calendario">Recibir el calendario</a>
     </div>
     <div className="desp-col">
       <span className="desp-tit">Producciones</span>
@@ -46,6 +47,7 @@ export function Nav() {
       <a href="/experiencias#curso">Cursos</a>
       <a href="/experiencias#evento">Eventos</a>
       <a href="/membresia">Membresía</a>
+      <a href="/registro">Regístrate</a>
     </div>
     <div className="desp-col">
       <span className="desp-tit">Fortaleza Mexicana</span>

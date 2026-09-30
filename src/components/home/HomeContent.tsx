@@ -1,9 +1,10 @@
 import { Ico } from "@/components/ui/Icons";
 import { Footer } from "@/components/layout/Footer";
 import { Tarjetas } from "@/components/ui/Tarjetas";
-import { PortadasProduccion } from "@/components/ui/Hub";
+import { PortadasProduccion, TarjetasFronton } from "@/components/ui/Hub";
+import { Registro } from "@/components/ui/Registro";
 import { catalogo } from "@/content/experiencias";
-import { SEDE, cartelera, producciones, canales, CORREO_HUB, CORREO_CARTELERA } from "@/content/hub";
+import { SEDE, cartelera, producciones, canales, enElFronton, CORREO_HUB } from "@/content/hub";
 
 const proxima = cartelera[0];
 
@@ -47,6 +48,8 @@ const PREGUNTAS = [
     items: [
       ["¿Dónde son los eventos en vivo?",
         "En el Frontón México, en la Plaza de la República de la Ciudad de México. Las fechas se publican en la cartelera en cuanto se confirman."],
+      ["¿Cómo me entero de las fechas?",
+        "Suscríbete al calendario de actividades y te avisamos por WhatsApp o por correo, como prefieras, cada vez que haya una función, un estreno o una experiencia nueva."],
       ["¿Cuánto cuesta la membresía?",
         "La cuota y la fecha de apertura están por confirmar. Si pides tu lugar ahora, te escribimos en cuanto se abran las primeras plazas."],
       ["¿Las experiencias son presenciales o en línea?",
@@ -110,9 +113,16 @@ export function HomeContent() {
         <span className="banda-dest-raya" aria-hidden="true"></span>
         <p className="small">{proxima ? proxima.fecha + " · " + proxima.hora : "Conferencias, conversaciones y encuentros en vivo. Fechas por anunciar."}</p>
         <p className="tiny mut"><Ico.Pin /> {SEDE.zona}</p>
-        <a className="btn btn-borde" href="/cartelera"><Ico.Ticket /> Ver cartelera</a>
+        <div className="row" style={{ gap: "var(--s3)" }}>
+          <a className="btn btn-borde" href="/cartelera"><Ico.Ticket /> Ver cartelera</a>
+          <a className="btn btn-borde" href="#calendario"><Ico.Cal /> Recibir el calendario</a>
+        </div>
       </div>
     </article>
+    <div className="stack g5">
+      <p className="riel-tit">También en el {SEDE.nombre}</p>
+      <div className="vecinos"><TarjetasFronton items={enElFronton} /></div>
+    </div>
   </div>
 </section>
 
@@ -216,18 +226,16 @@ export function HomeContent() {
   </div>
 </section>
 
-{/* ══════════ AVÍSAME ══════════ */}
+{/* ══════════ CALENDARIO · SUSCRIPCIÓN ══════════ */}
 <section className="sec">
   <div className="wrap">
-    <div className="insc">
-      <span className="orn" aria-hidden="true"></span>
-      <div className="stack g3">
-        <span className="eyebrow">Avísame</span>
-        <h2 className="h2">Recibe la cartelera y los estrenos.</h2>
-        <p className="lead" style={{ maxWidth: "52ch" }}>Escríbenos y te avisamos por correo de cada función, episodio y programa nuevo.</p>
-      </div>
-      <a className="btn btn-lg" href={CORREO_CARTELERA}>Quiero enterarme <Ico.Flecha /></a>
-    </div>
+    <Registro
+      modo="calendario"
+      id="calendario"
+      eyebrow="Calendario de actividades"
+      titulo={<>Que no se te pase<br />ninguna función.</>}
+      texto="Suscríbete y te llega el calendario de Fortaleza Mexicana: funciones en el Frontón México, estrenos y experiencias nuevas."
+    />
   </div>
 </section>
 
