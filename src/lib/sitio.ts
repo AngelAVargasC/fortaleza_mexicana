@@ -1,5 +1,8 @@
 /* Constantes del sitio que no son contenido editable. */
 
+/** Dominio principal (sin www; next.config.ts redirige www aqui). */
+export const SITIO_URL = process.env.NEXT_PUBLIC_SITIO_URL || "https://fortalezamexicana.com";
+
 export const SEDE = {
   nombre: "Frontón México",
   zona: "Plaza de la República · CDMX",

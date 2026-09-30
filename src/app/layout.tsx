@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "@/styles/global.css";
+import { SITIO_URL } from "@/lib/sitio";
 
 /* Raiz comun al sitio y al panel: documento, fuentes y tokens. La barra,
    el pie y el CSS del sitio viven en (sitio)/layout.tsx; los del panel,
    en admin/layout.tsx. */
 export const metadata: Metadata = {
+  // base de las URL absolutas de Open Graph (vista previa al compartir)
+  metadataBase: new URL(SITIO_URL),
   title: {
     default: "Fortaleza Mexicana",
     template: "%s — Fortaleza Mexicana",
