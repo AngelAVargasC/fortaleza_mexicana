@@ -17,11 +17,11 @@ import type { Canal, Experiencia, Funcion, Produccion, Publicacion, Vecino } fro
    de "que es" sale de la narrativa del cliente (project/assets). */
 
 const INTENCIONES = [
-  { href: "/publicaciones", ico: <Ico.Play />, txt: "Ver los videos más recientes" },
-  { href: "/propiedades#podcast", ico: <Ico.Micro />, txt: "Conocer el Podcast Fortaleza Mexicana" },
-  { href: "/propiedades#conversarian", ico: <Ico.Libro />, txt: "Descubrir Conversarian" },
-  { href: "/cartelera", ico: <Ico.Ticket />, txt: "Ver lo que viene en el Frontón México" },
-  { href: "#cursos", ico: <Ico.Cal />, txt: "Recibir aviso de cursos y workshops" },
+  { href: "/publicaciones", ico: <Ico.Play />, txt: "Ve nuestros videos más recientes" },
+  { href: "/propiedades#podcast", ico: <Ico.Micro />, txt: "Conoce el podcast Fortaleza Mexicana" },
+  { href: "/propiedades#conversarian", ico: <Ico.Libro />, txt: "Descubre Conversarian" },
+  { href: "/cartelera", ico: <Ico.Ticket />, txt: "Explora los próximos eventos del Frontón México" },
+  { href: "#cursos", ico: <Ico.Cal />, txt: "Recibe avisos de próximos cursos y talleres" },
 ];
 
 /* "Un lugar para…": las seis razones de la narrativa del cliente. */
