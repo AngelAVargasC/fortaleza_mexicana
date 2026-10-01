@@ -7,9 +7,9 @@ export const metadata = {
   title: { absolute: "Fortaleza Mexicana — México nos reúne, las ideas nos mueven" },
 };
 
-// Lee de PostgreSQL en cada peticion (con cache por etiqueta): lo que se
-// guarda en /admin sale sin volver a desplegar, y el build no necesita base.
-export const dynamic = "force-dynamic";
+// Pagina estatica que se regenera (ISR, DEC-033): se sirve ya armada y se
+// rehace a lo mas cada 60 s, o al momento cuando /admin guarda (updateTag).
+export const revalidate = 60;
 
 export default async function Page() {
   const [cartelera, producciones, canales, enElFronton, catalogo, publicaciones] = await Promise.all([

@@ -27,13 +27,27 @@ lectura cacheada para el sitio.
 | Sesiones | `src/server/auth.ts`, `clave.ts` | scrypt; cookie httpOnly con token aleatorio; la base guarda solo su sha256. Cada página y **cada acción** llama a `requerirUsuario()`. |
 | Registros | `src/app/api/registro/route.ts` | Valida, normaliza (`+52…`, correo en minúsculas) y hace *upsert* por `(tipo, medio, contacto)`. |
 
-## Frescura del contenido
+## Frescura del contenido y tráfico alto (DEC-033)
 
-Las páginas públicas son `force-dynamic` y leen con caché por etiqueta
-(`ETIQUETA.*`, 10 min de red de seguridad). Al guardar en el panel,
-`updateTag(etiqueta)` invalida esa caché: lo publicado sale en la siguiente
-visita, sin volver a desplegar. Programar una publicación = fecha futura; sale
-cuando vence la caché siguiente a esa hora (≤ 10 min).
+Las páginas de contenido (home, cartelera, propiedades, canales,
+experiencias, detalle de publicación) son **ISR**: se sirven ya armadas desde
+caché y se rehacen a lo más cada 60 s (`revalidate = 60`). Sus lecturas usan
+caché por etiqueta (`ETIQUETA.*`). Al guardar en el panel, `updateTag` invalida
+la etiqueta y con ella las páginas que la usan: lo publicado sale en la
+siguiente visita, sin desplegar. `/publicaciones` (filtro por URL) sigue
+dinámica.
+
+El build **no toca la base** (`hayBase()` es falso en `next build`: en Railway
+no hay red privada durante el build), así que esas páginas salen vacías del
+build. `src/instrumentation.ts` las **calienta al arrancar**: pide a
+`/api/calentar` (protegido por una ficha aleatoria del propio proceso; desde
+fuera da 404) que las marque vencidas y las visita para que se regeneren con
+datos antes del primer visitante.
+
+Prueba de carga (local, una instancia): home en caché ~1 240 visitas/s con 300
+simultáneos y 0 errores (antes, sin caché, ~105/s); 350 registros simultáneos
+guardados en < 1 s, sin duplicar. Pool de 20 conexiones con 20 s de espera.
+Imágenes y fuentes de `public/` con caché de navegador (semana / año).
 
 ## Sumar un módulo nuevo (p. ej. «Episodios del podcast» o «Temas»)
 
@@ -57,8 +71,9 @@ El panel ya queda con lista, búsqueda, paginación, alta, edición y borrado.
   máximo de la PostgreSQL de Railway.
 - **Varias instancias** (réplicas de Railway): la app no guarda estado propio
   (sesiones en la base), **salvo dos cosas por instancia**: la caché de datos
-  de Next y el freno de intentos de login. Con una instancia (lo actual) no
-  importa. Con varias: un `cacheHandler` compartido (Redis) para que
+  y de páginas de Next y el freno de intentos de login. Con una instancia
+  sobra capacidad para el lanzamiento (ver prueba de carga). Con varias: un
+  `cacheHandler` compartido (Redis) para que
   `updateTag` llegue a todas (si no, las demás tardan ≤ 10 min) y mover el
   freno a Redis o a la base.
 - **Medios**: hoy las portadas son rutas (`/img/…`) o enlaces, y los videos

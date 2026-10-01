@@ -7,7 +7,9 @@ import { VideoYouTube } from "@/components/cliente/VideoYouTube";
 import { obtenerPublicacion, obtenerPublicaciones } from "@/server/contenido";
 import { TIPO_PUBLICACION } from "@/lib/tipos";
 
-export const dynamic = "force-dynamic";
+// Pagina estatica que se regenera (ISR, DEC-033): se sirve ya armada y se
+// rehace a lo mas cada 60 s, o al momento cuando /admin guarda (updateTag).
+export const revalidate = 60;
 
 type Props = { params: Promise<{ slug: string }> };
 

@@ -10,8 +10,9 @@ export const metadata = {
   description: "Cursos, workshops y eventos de Fortaleza Mexicana. Déjanos tu correo y te avisamos en cuanto abran.",
 };
 
-// Lee de PostgreSQL (cache por etiqueta que invalida /admin).
-export const dynamic = "force-dynamic";
+// Pagina estatica que se regenera (ISR, DEC-033): se sirve ya armada y se
+// rehace a lo mas cada 60 s, o al momento cuando /admin guarda (updateTag).
+export const revalidate = 60;
 
 /* Sin experiencias reales visibles, la pagina no inventa fichas: explica
    que vienen y capta el correo (DEC-032). Al publicarlas en /admin aparece

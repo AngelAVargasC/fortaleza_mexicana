@@ -11,8 +11,9 @@ export const metadata = {
 };
 
 
-// Lee de PostgreSQL (cache por etiqueta que invalida /admin).
-export const dynamic = "force-dynamic";
+// Pagina estatica que se regenera (ISR, DEC-033): se sirve ya armada y se
+// rehace a lo mas cada 60 s, o al momento cuando /admin guarda (updateTag).
+export const revalidate = 60;
 
 export default async function Page() {
   const [cartelera, enElFronton] = await Promise.all([obtenerCartelera(), obtenerAliados()]);
