@@ -75,6 +75,8 @@ export const producciones = pgTable("producciones", {
   titulo: text("titulo").notNull(),
   /** Etiqueta del badge: "Podcast", "Animación IA", "Programa". */
   formato: text("formato").notNull(),
+  /** Frase corta con gancho; en la tarjeta de la home va en lugar del formato. */
+  lema: text("lema"),
   descripcion: text("descripcion").notNull(),
   portadaUrl: text("portada_url").notNull(),
   portadaAlt: text("portada_alt").notNull().default(""),

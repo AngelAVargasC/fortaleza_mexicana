@@ -53,6 +53,8 @@ export interface Produccion {
   /** Logo oficial subido en /admin; sin el, logotipo provisional. */
   logo?: string;
   formato: string;
+  /** Frase con gancho; la tarjeta la muestra en lugar del formato. */
+  lema?: string;
   titulo: string;
   desc: string;
   img: string;

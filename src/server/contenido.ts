@@ -70,7 +70,7 @@ const _producciones = unstable_cache(async (): Promise<Produccion[]> => {
     .where(eq(t.producciones.visible, true))
     .orderBy(asc(t.producciones.orden), asc(t.producciones.titulo));
   return filas.map((p) => ({
-    id: p.slug, logo: opc(p.logoUrl), formato: p.formato, titulo: p.titulo, desc: p.descripcion, img: p.portadaUrl,
+    id: p.slug, logo: opc(p.logoUrl), formato: p.formato, lema: opc(p.lema), titulo: p.titulo, desc: p.descripcion, img: p.portadaUrl,
     alt: p.portadaAlt, red: opc(p.red), estadoTexto: p.estadoTexto, enlace: opc(p.enlace),
   }));
 }, ["producciones"], { tags: [ETIQUETA.producciones], revalidate: REVALIDAR });

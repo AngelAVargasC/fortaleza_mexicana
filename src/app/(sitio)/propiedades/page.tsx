@@ -41,6 +41,7 @@ export default async function Page() {
           <span className="badge b-evento" style={{ alignSelf: "flex-start" }}>{p.formato}</span>
           <div className="prod-logo"><LogoPropiedad slug={p.id} titulo={p.titulo} logo={p.logo} tam="grande" /></div>
           <h2 className="sr-only">{p.titulo}</h2>
+          {p.lema && <p className="prod-lema">{p.lema}</p>}
           <p className="lead" style={{ maxWidth: "48ch" }}>{p.desc}</p>
           {p.red && <p className="small red-aliada">{p.red}</p>}
           {p.enlace

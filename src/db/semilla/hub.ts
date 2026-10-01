@@ -29,6 +29,7 @@ export interface Produccion {
   id: string;
   /** Etiqueta del badge. */
   formato: string;
+  lema?: string;
   titulo: string;
   desc: string;
   img: string;
@@ -44,25 +45,25 @@ const RED = "Con la red de Mexicanos Fuertes y Somos Grandes";
 
 export const producciones: Produccion[] = [
   {
-    id: "podcast", formato: "Podcast", titulo: "Podcast Fortaleza Mexicana",
+    id: "podcast", formato: "Podcast", lema: "México, conversado sin prisa", titulo: "Podcast Fortaleza Mexicana",
     desc: "Conversaciones largas sobre México: su historia, su cultura y las ideas que lo están moviendo.",
     img: "/img/bb-01.webp", alt: "Grupo reunido alrededor de una mesa llena de fotografías y documentos",
     estadoTexto: "Próximamente",
   },
   {
-    id: "conversarian", formato: "Animación IA", titulo: "Conversarian",
-    desc: "Personajes históricos, animados con inteligencia artificial, conversan sobre los temas de hoy.",
+    id: "conversarian", formato: "Animación IA", lema: "La historia toma la palabra", titulo: "Conversarian",
+    desc: "Los personajes que hicieron México regresan a opinar sobre lo que vivimos hoy. Animados con inteligencia artificial, ponen a la historia frente al presente.",
     img: "/img/bb-19.webp", alt: "Mujer leyendo un libro del que surgen una pirámide, una catedral, un águila y un busto antiguo",
     estadoTexto: "Próximamente",
   },
   {
-    id: "pequeno-a-gigante", formato: "Programa", titulo: "PequeñoAGigante",
+    id: "pequeno-a-gigante", formato: "Programa", lema: "Empezar con poco, llegar lejos", titulo: "PequeñoAGigante",
     desc: "Historias de quienes empezaron con poco y llegaron lejos, contadas para el que apenas empieza.",
     img: "/img/bb-07.webp", alt: "Mujer joven mirando al cielo en un patio patrimonial al anochecer",
     red: RED, estadoTexto: "Próximamente",
   },
   {
-    id: "creo-en-ti", formato: "Programa", titulo: "CreoEnTi",
+    id: "creo-en-ti", formato: "Programa", lema: "Alguien que apueste por ti", titulo: "CreoEnTi",
     desc: "Un programa para acompañar y respaldar a quien tiene un proyecto y necesita que alguien apueste por él.",
     img: "/img/bb-20.webp", alt: "Mujer mayor conversando con un grupo alrededor de una mesa con velas",
     red: RED, estadoTexto: "Próximamente",

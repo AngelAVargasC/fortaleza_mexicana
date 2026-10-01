@@ -137,6 +137,8 @@ export const RECURSOS: Record<string, Recurso> = {
       { nombre: "logoUrl", etiqueta: "Logotipo oficial", tipo: "imagen", nulo: true, ancho: true,
         ayuda: "SVG o PNG con fondo transparente, en claro (va sobre foto oscura). Vacío = logotipo provisional del sitio." },
       { nombre: "formato", etiqueta: "Formato", tipo: "texto", requerido: true, ayuda: "Podcast, Animación IA, Programa…" },
+      { nombre: "lema", etiqueta: "Lema", tipo: "texto", nulo: true, ancho: true,
+        ayuda: "Frase corta con gancho, sin punto final. Va en la tarjeta de la home en lugar del formato." },
       { nombre: "estadoTexto", etiqueta: "Estado visible", tipo: "texto", requerido: true, porDefecto: "Próximamente" },
       { nombre: "descripcion", etiqueta: "Descripción", tipo: "textoLargo", filas: 3, requerido: true, ancho: true },
       { nombre: "portadaUrl", etiqueta: "Portada", tipo: "imagen", requerido: true },

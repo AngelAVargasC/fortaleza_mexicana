@@ -20,7 +20,8 @@ export function PortadasProduccion({ items }: { items: Produccion[] }) {
             <h3 className="sr-only">{p.titulo}</h3>
             <LogoPropiedad slug={p.id} titulo={p.titulo} logo={p.logo} />
             <span className="raya" aria-hidden="true"></span>
-            <p>{p.formato}{p.red ? " · con Mexicanos Fuertes y Somos Grandes" : ""}</p>
+            <p className="portada-card-lema">{p.lema ?? p.formato}</p>
+            {p.red && <p className="portada-card-red">Con Mexicanos Fuertes y Somos Grandes</p>}
           </div>
         </a>
       ))}

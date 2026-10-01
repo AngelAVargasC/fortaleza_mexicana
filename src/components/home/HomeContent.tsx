@@ -76,7 +76,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
   <img className="portada-img" src="/img/hero-figura.webp" alt="Mujer mayor con rebozo, de pie en una calle patrimonial bajo un cielo dorado" />
   <div className="wrap portada-in">
     <div className="portada-txt">
-      <h1 className="portada-tit">Ideas que se viven<br /><em>Experiencias que transforman</em></h1>
+      <h1 className="portada-tit">Ideas que se viven:<br /><em>experiencias que transforman</em></h1>
       <p className="lead">
         Contenidos, programas y eventos para desarrollar tu criterio, ampliar tu visión
         y conectar con una comunidad que construye el futuro.
@@ -113,7 +113,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
 {/* ══════════ CARTELERA · DESTACADO EN BANDA ══════════ */}
 <section className="sec" id="cartelera">
   <div className="wrap stack g10">
-    <h2 className="titular">En vivo en {SEDE.nombre}<br /><span>La cartelera de Fortaleza Mexicana</span></h2>
+    <h2 className="titular">En vivo en {SEDE.nombre}:<br /><span>la cartelera de Fortaleza Mexicana</span></h2>
     <article className="banda-dest">
       <img src="/img/bb-17.webp" alt="Un hombre habla de pie ante un grupo sentado a una mesa, en un patio con faroles" loading="lazy" />
       <div className="banda-dest-txt">
@@ -138,7 +138,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
 {/* ══════════ PRODUCCIONES PROPIAS ══════════ */}
 <section className="sec" id="propiedades">
   <div className="wrap stack g10">
-    <h2 className="titular">Propiedades<br /><span>Historias de México, contadas por nosotros</span></h2>
+    <h2 className="titular">Propiedades:<br /><span>historias de México, contadas por nosotros</span></h2>
     <div className="portadas"><PortadasProduccion items={producciones} /></div>
     <a className="btn btn-gris" href="/propiedades" style={{ alignSelf: "center" }}>Ver todas las propiedades</a>
   </div>
@@ -148,7 +148,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
 {publicaciones.length > 0 && (
 <section className="sec" id="recientes">
   <div className="wrap stack g8">
-    <h2 className="titular">Lo más reciente<br /><span>Videos, artículos y episodios del hub</span></h2>
+    <h2 className="titular">Lo más reciente:<br /><span>videos, artículos y episodios del hub</span></h2>
     <div className="pubs riel-movil"><TarjetasPublicacion items={publicaciones} /></div>
     <a className="btn btn-gris" href="/publicaciones" style={{ alignSelf: "center" }}>Ver todas las publicaciones</a>
   </div>

@@ -23,7 +23,7 @@ async function main() {
 
   const r = await Promise.all([
     db.insert(t.producciones).values(producciones.map((p, i) => ({
-      slug: p.id, titulo: p.titulo, formato: p.formato, descripcion: p.desc, portadaUrl: p.img,
+      slug: p.id, titulo: p.titulo, formato: p.formato, lema: p.lema ?? null, descripcion: p.desc, portadaUrl: p.img,
       portadaAlt: p.alt, red: p.red ?? null, estadoTexto: p.estadoTexto, enlace: p.enlace ?? null, orden: i,
     }))).onConflictDoNothing({ target: t.producciones.slug }).returning({ id: t.producciones.id }),
 
