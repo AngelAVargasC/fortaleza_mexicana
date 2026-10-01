@@ -4,7 +4,7 @@ import { FormRegistro } from "@/components/cliente/FormRegistro";
 
 /* Bloque de registro: texto a la izquierda, formulario a la derecha. El
    mismo para la lista de invitados (modo "calendario": home, cartelera) y
-   para registrarse como parte de Fortaleza Mexicana (membresia, /registro). */
+   para registrarse como parte de Fortaleza Mexicana (/registro). */
 export function Registro({
   modo, id, eyebrow, titulo, texto, h1 = false,
 }: {

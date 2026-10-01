@@ -140,3 +140,42 @@ a.chip{display:inline-flex;align-items:center;text-decoration:none;}
   display:grid;place-items:center;background:var(--coral);color:var(--negro);transition:transform var(--dur) var(--ease);}
 .video-portada:hover .video-boton{transform:translate(-50%,-50%) scale(1.06);}
 .video-boton svg{width:28px;height:28px;margin-left:4px;}
+
+/* ── Home del lanzamiento (DEC-032): qué es, qué encuentras, por qué volver ── */
+.que-es{display:grid;gap:var(--s10);align-items:center;}
+@media(min-width:1000px){.que-es{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--s16);}}
+.que-es-cierre{font-family:var(--f-disp);font-size:clamp(1.15rem,1.8vw,1.5rem);color:var(--coral);letter-spacing:.02em;margin:0;}
+.que-es-pilares{padding:var(--s8);border-radius:var(--r-lg);background:var(--g900);box-shadow:inset 0 0 0 1px rgba(230,217,200,.08);}
+.que-es-pilares ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;}
+.que-es-pilares li{font-family:var(--f-disp);font-size:clamp(1.05rem,1.5vw,1.3rem);letter-spacing:.02em;
+  padding-block:var(--s3);border-bottom:1px solid rgba(230,217,200,.08);}
+.que-es-pilares li:last-child{border-bottom:0;}
+
+.encuentras{display:grid;gap:var(--s3);grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));}
+@media(min-width:900px){.encuentras{grid-template-columns:repeat(3,minmax(0,1fr));}}
+.encuentra{position:relative;display:flex;flex-direction:column;gap:var(--s2);padding:var(--s6);border-radius:var(--r-lg);
+  background:var(--g900);box-shadow:inset 0 0 0 1px rgba(230,217,200,.08);transition:box-shadow var(--dur),transform var(--dur) var(--ease);}
+.encuentra:hover{box-shadow:inset 0 0 0 1px rgba(195,154,100,.55);transform:translateY(-2px);}
+.encuentra-ico{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(195,154,100,.12);color:var(--coral);margin-bottom:var(--s2);}
+.encuentra-ico svg{width:20px;height:20px;}
+.encuentra-tit{font-family:var(--f-disp);font-weight:700;font-size:1.2rem;letter-spacing:.02em;}
+.encuentra-txt{font-size:.9375rem;color:var(--txt-2);line-height:1.5;padding-right:var(--s6);}
+.encuentra-ir{position:absolute;top:var(--s6);right:var(--s6);color:var(--txt-2);transition:transform var(--dur) var(--ease),color var(--dur);}
+.encuentra-ir svg{width:18px;height:18px;}
+.encuentra:hover .encuentra-ir{transform:translateX(3px);color:var(--coral);}
+
+.capta{display:grid;gap:var(--s8);align-items:center;padding:clamp(28px,4vw,56px);border-radius:var(--r-xl);
+  background:var(--g900);box-shadow:inset 0 0 0 1px rgba(230,217,200,.1);}
+@media(min-width:1000px){.capta{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}}
+.form-correo{gap:var(--s3);}
+.form-correo-fila{display:flex;gap:var(--s2);}
+.form-correo-fila input{flex:1;min-width:0;}
+.form-correo-fila .btn{flex:none;}
+@media(max-width:480px){.form-correo-fila{flex-direction:column;}.form-correo-fila .btn{justify-content:center;}}
+
+.volver{display:grid;gap:var(--s4);}
+@media(min-width:900px){.volver{grid-template-columns:repeat(3,minmax(0,1fr));}}
+.volver-item{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s6);border-top:2px solid var(--coral);}
+.volver-item > svg{width:24px;height:24px;color:var(--coral);margin-bottom:var(--s2);}
+.volver-item h3{font-family:var(--f-disp);font-weight:700;font-size:1.15rem;letter-spacing:.02em;}
+.volver-item p{color:var(--txt-2);font-size:.9375rem;line-height:1.55;margin:0;}

@@ -6,8 +6,8 @@ import { CORREO } from "@/lib/sitio";
 
 /* Formulario de registro. Dos modos sobre el mismo envio (/api/registro):
    - "calendario": recibir el calendario de actividades por WhatsApp o correo.
-   - "miembro": registrarse como parte de Fortaleza Mexicana (primera
-     generacion de la membresia), con el calendario incluido por defecto.
+   - "miembro": registrarse como parte de Fortaleza Mexicana (/registro,
+     destino del QR), con el calendario incluido por defecto.
    Si el servidor no tiene destino configurado o falla, no se finge el alta:
    se ofrece mandar los mismos datos por correo. */
 
@@ -86,7 +86,7 @@ export function FormRegistro({ modo }: { modo: Modo }) {
           <p className="h4">{modo === "miembro" ? "Ya estás en la lista" : "Ya estás en la lista de invitados"}</p>
           <p className="small mut">
             {modo === "miembro"
-              ? "Te escribimos con la cuota, la fecha de apertura y el calendario de encuentros en cuanto estén confirmados."
+              ? "Te escribimos con las fechas en el Frontón México, los estrenos y los primeros cursos y workshops."
               : "Te vas a enterar antes que nadie de lo que viene"}
             {modo === "calendario" && (medio === "whatsapp" ? " por WhatsApp." : " por correo.")}
           </p>

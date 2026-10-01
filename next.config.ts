@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
       // "Producciones" pasa a "Propiedades" (cliente, 2026-10-01): los enlaces
       // ya compartidos siguen llegando (el #ancla lo conserva el navegador).
       { source: "/producciones", destination: "/propiedades", permanent: true },
+      // Lanzamiento (DEC-032): la membresia es de una etapa posterior y la
+      // experiencia "Pensar el presente" era ilustrativa.
+      { source: "/membresia", destination: "/registro", permanent: false },
+      { source: "/experiencias/:slug", destination: "/experiencias", permanent: false },
     ];
   },
 };

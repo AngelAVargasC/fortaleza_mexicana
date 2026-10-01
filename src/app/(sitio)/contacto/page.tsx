@@ -57,9 +57,9 @@ export default function Page() {
       <h2 className="h2">Tres respuestas<br />que ahorran un correo</h2>
     </div>
     <ol className="principios">
-      <li className="rv"><div><h3>¿Cómo me inscribo a una experiencia?</h3><p>Desde la página de cada experiencia, con el botón de reserva. Te contestamos con precio, sede y forma de pago.</p></div></li>
-      <li className="rv"><div><h3>¿La membresía ya está abierta?</h3><p>Todavía no. La cuota y la fecha de apertura se anuncian por correo a quienes pidan lugar en la primera generación.</p></div></li>
-      <li className="rv"><div><h3>¿Hacen experiencias fuera de Ciudad de México?</h3><p>Los cursos son en línea. Los workshops y eventos presenciales, por ahora, en Ciudad de México; otras ciudades se abren con aliados locales.</p></div></li>
+      <li className="rv"><div><h3>¿Cómo me entero de los eventos?</h3><p>Entra a la lista de invitados desde la página de inicio: los próximos eventos se anuncian primero ahí, por WhatsApp o por correo.</p></div></li>
+      <li className="rv"><div><h3>¿Hay cursos y workshops?</h3><p>Estamos preparando los primeros. Deja tu correo en la página de cursos y te escribimos en cuanto abran.</p></div></li>
+      <li className="rv"><div><h3>¿Dónde son los eventos en vivo?</h3><p>En el Frontón México, en la Plaza de la República de la Ciudad de México.</p></div></li>
     </ol>
   </div>
 </section>

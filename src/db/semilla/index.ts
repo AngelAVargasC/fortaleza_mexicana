@@ -42,7 +42,8 @@ async function main() {
       slug: x.slug.startsWith("curso-") ? slugDe(x.titulo) : x.slug,
       tipo: x.tipo, badge: x.badge, img: x.img, alt: x.alt, titulo: x.titulo, fechaTexto: x.fecha,
       lugar: x.lugar, modalidad: x.modalidad, estado: x.estado, estadoTexto: x.estadoTexto,
-      detalle: x.detalle ?? null, orden: i,
+      // Ilustrativas: entran ocultas (DEC-032). Las reales se crean en /admin.
+      detalle: x.detalle ?? null, orden: i, visible: false,
     }))).onConflictDoNothing({ target: t.experiencias.slug }).returning({ id: t.experiencias.id }),
   ]);
 

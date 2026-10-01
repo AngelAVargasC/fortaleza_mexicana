@@ -31,12 +31,10 @@ export function Footer() {
         </ul>
       </div>
       <div>
-        <h5>Experiencias</h5>
+        <h5>Participa</h5>
         <ul>
-          <li><a href="/experiencias#workshop">Workshops</a></li>
-          <li><a href="/experiencias#curso">Cursos</a></li>
-          <li><a href="/experiencias#evento">Eventos</a></li>
-          <li><a href="/membresia">Membresía</a></li>
+          <li><a href="/#calendario">Lista de invitados</a></li>
+          <li><a href="/experiencias">Cursos y workshops</a></li>
           <li><a href="/registro">Regístrate</a></li>
         </ul>
       </div>

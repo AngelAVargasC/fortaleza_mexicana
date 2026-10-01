@@ -37,7 +37,9 @@ export async function POST(req: Request) {
   let contacto = texto(d.contacto, 120);
 
   if (!TIPOS.includes(tipo) || !MEDIOS.includes(medio)) return error("Datos incompletos.");
-  if (!nombre) return error("Escribe tu nombre.");
+  // El nombre es obligatorio salvo en la captura corta por correo
+  // ("avisame de cursos"), que solo pide el correo.
+  if (!nombre && medio !== "correo") return error("Escribe tu nombre.");
   if (d.acepta !== true) return error("Necesitamos tu permiso para escribirte.");
 
   if (medio === "whatsapp") {
@@ -73,7 +75,12 @@ export async function POST(req: Request) {
     await db().insert(registros).values(fila).onConflictDoUpdate({
       target: [registros.tipo, registros.medio, registros.contacto],
       set: {
-        nombre: fila.nombre, oficio: fila.oficio, intereses: fila.intereses, calendario: fila.calendario,
+        // Registrarse otra vez no borra lo que ya habia: el nombre se conserva
+        // si llega vacio y los intereses se suman.
+        nombre: sql`coalesce(nullif(excluded.nombre, ''), ${registros.nombre})`,
+        oficio: sql`coalesce(excluded.oficio, ${registros.oficio})`,
+        intereses: sql`array(select distinct unnest(${registros.intereses} || excluded.intereses))`,
+        calendario: sql`${registros.calendario} or excluded.calendario`,
         ref: sql`coalesce(${registros.ref}, excluded.ref)`, aceptoEn: new Date(), bajaEn: null,
       },
     });

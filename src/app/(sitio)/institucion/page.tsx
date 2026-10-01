@@ -106,10 +106,10 @@ export default function Page() {
       <span className="orn" aria-hidden="true"></span>
       <div className="stack g3">
         <span className="eyebrow">Sé parte</span>
-        <h2 className="h2">La forma de estar dentro es la membresía</h2>
-        <p className="lead" style={{ maxWidth: "52ch" }}>Acceso a contenidos, encuentros privados, red de miembros y prioridad en las experiencias.</p>
+        <h2 className="h2">Sé parte de Fortaleza Mexicana</h2>
+        <p className="lead" style={{ maxWidth: "52ch" }}>Regístrate y entérate primero de las fechas en el Frontón México, los estrenos y los primeros cursos.</p>
       </div>
-      <a className="btn btn-lg" href="/membresia">Conocer la membresía <Ico.Flecha /></a>
+      <a className="btn btn-lg" href="/registro">Regístrate <Ico.Flecha /></a>
     </div>
   </div>
 </section>

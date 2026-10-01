@@ -9,6 +9,7 @@ import "@/styles/movil.css";
 import { Nav } from "@/components/layout/Nav";
 import { Interfaz } from "@/components/cliente/Interfaz";
 import { BarraMovil } from "@/components/cliente/BarraMovil";
+import { Clarity } from "@/components/cliente/Clarity";
 
 export default function SitioLayout({ children }: { children: ReactNode }) {
   return (
@@ -17,6 +18,7 @@ export default function SitioLayout({ children }: { children: ReactNode }) {
       <Nav />
       {children}
       <BarraMovil />
+      <Clarity />
       {/* revelado, desplegable, filtros y carrusel: en todas las paginas */}
       <Interfaz />
     </>

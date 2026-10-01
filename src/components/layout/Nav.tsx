@@ -18,10 +18,10 @@ export function Nav() {
       <a href="/publicaciones">Publicaciones</a>
       <a href="/propiedades">Propiedades</a>
       <a href="/canales">Canales</a>
-      <a href="/experiencias">Experiencias</a>
+      <a href="/experiencias">Cursos</a>
       <a href="/institucion">Nosotros</a>
     </nav>
-    <a className="btn barra-cta" href="/membresia">Únete<span className="sr-only"> a Fortaleza Mexicana</span></a>
+    <a className="btn barra-cta" href="/registro">Únete<span className="sr-only"> a Fortaleza Mexicana</span></a>
   </div>
 </header>
 
@@ -44,11 +44,9 @@ export function Nav() {
       <a href="/propiedades#creo-en-ti">CreoEnTi</a>
     </div>
     <div className="desp-col">
-      <span className="desp-tit">Experiencias</span>
-      <a href="/experiencias#workshop">Workshops</a>
-      <a href="/experiencias#curso">Cursos</a>
-      <a href="/experiencias#evento">Eventos</a>
-      <a href="/membresia">Membresía</a>
+      <span className="desp-tit">Participa</span>
+      <a href="/#calendario">Lista de invitados</a>
+      <a href="/experiencias">Cursos y workshops</a>
       <a href="/registro">Regístrate</a>
     </div>
     <div className="desp-col">

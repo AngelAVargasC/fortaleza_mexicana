@@ -47,7 +47,7 @@ export default async function Page() {
 <section className="sec" style={{ paddingTop: "0" }}>
   <div className="wrap stack g8">
     <div className="between rv">
-      <span className="eyebrow e-coral">También en el {SEDE.nombre}</span>
+      <span className="eyebrow e-coral" id="fronton">También en el {SEDE.nombre}</span>
       <p className="lead" style={{ maxWidth: "44ch" }}>Una noche completa: la obra, la mesa y la conversación, en el mismo edificio.</p>
     </div>
     <div className="vecinos rv"><TarjetasFronton items={enElFronton} /></div>

@@ -81,6 +81,7 @@ completa. Variables:
 | `DATABASE_URL` | `${{Postgres.DATABASE_URL}}` (referencia al servicio de Railway) |
 | `DB_POOL_MAX` | Opcional. Conexiones por instancia (10). |
 | `NEXT_PUBLIC_SITIO_URL` | Opcional. Dominio fijo para los QR. |
+| `NEXT_PUBLIC_CLARITY_ID` | Microsoft Clarity: el ID del proyecto (clarity.microsoft.com → Settings → Overview). Se lee en el build: al ponerla, redeploy. Solo carga en el sitio público. |
 
 Paso a paso:
 
