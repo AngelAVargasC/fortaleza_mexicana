@@ -45,8 +45,8 @@ const RED = "Con la red de Mexicanos Fuertes y Somos Grandes";
 
 export const producciones: Produccion[] = [
   {
-    id: "podcast", formato: "Podcast", lema: "México, conversado sin prisa", titulo: "Podcast Fortaleza Mexicana",
-    desc: "Conversaciones largas sobre México: su historia, su cultura y las ideas que lo están moviendo.",
+    id: "podcast", formato: "Podcast", lema: "México tiene mucho que contarnos", titulo: "Podcast Fortaleza Mexicana",
+    desc: "Un podcast para descubrir México, escuchar otras miradas y hacernos nuevas preguntas. Historias e ideas que nos emocionan y nos invitan a pensar por nosotros mismos.",
     img: "/img/bb-01.webp", alt: "Grupo reunido alrededor de una mesa llena de fotografías y documentos",
     estadoTexto: "Próximamente",
   },
