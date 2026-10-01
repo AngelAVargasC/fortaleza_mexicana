@@ -63,14 +63,14 @@ const _cartelera = unstable_cache(async (): Promise<Funcion[]> => {
 
 export const obtenerCartelera = () => seguro("cartelera", [], _cartelera);
 
-/* ── Producciones ── */
+/* ── Propiedades (tabla producciones) ── */
 
 const _producciones = unstable_cache(async (): Promise<Produccion[]> => {
   const filas = await db().select().from(t.producciones)
     .where(eq(t.producciones.visible, true))
     .orderBy(asc(t.producciones.orden), asc(t.producciones.titulo));
   return filas.map((p) => ({
-    id: p.slug, formato: p.formato, titulo: p.titulo, desc: p.descripcion, img: p.portadaUrl,
+    id: p.slug, logo: opc(p.logoUrl), formato: p.formato, titulo: p.titulo, desc: p.descripcion, img: p.portadaUrl,
     alt: p.portadaAlt, red: opc(p.red), estadoTexto: p.estadoTexto, enlace: opc(p.enlace),
   }));
 }, ["producciones"], { tags: [ETIQUETA.producciones], revalidate: REVALIDAR });

@@ -59,9 +59,9 @@ export default async function Page() {
     <Registro
       modo="calendario"
       id="calendario"
-      eyebrow="Avísame"
-      titulo={<>Entérate primero<br />de cada función.</>}
-      texto="Te avisamos por WhatsApp o por correo en cuanto se confirme una fecha y se abra la venta de boletos."
+      eyebrow="Lista de invitados"
+      titulo={<>Regístrate y entra a la<br />lista de invitados.</>}
+      texto="Lo que viene en el Frontón México se anuncia primero a quienes están en la lista. Cuando se abre al público, tú ya sabes la fecha."
     />
   </div>
 </section>

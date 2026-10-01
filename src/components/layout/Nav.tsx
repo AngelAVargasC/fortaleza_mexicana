@@ -16,7 +16,7 @@ export function Nav() {
     <nav className="barra-links" aria-label="Secciones">
       <a href="/cartelera">Cartelera</a>
       <a href="/publicaciones">Publicaciones</a>
-      <a href="/producciones">Producciones</a>
+      <a href="/propiedades">Propiedades</a>
       <a href="/canales">Canales</a>
       <a href="/experiencias">Experiencias</a>
       <a href="/institucion">Nosotros</a>
@@ -32,16 +32,16 @@ export function Nav() {
       <span className="desp-tit">Contenidos</span>
       <a href="/cartelera">Cartelera · Frontón México</a>
       <a href="/publicaciones">Publicaciones y videos</a>
-      <a href="/producciones">Producciones propias</a>
+      <a href="/propiedades">Propiedades</a>
       <a href="/canales">Canales afines</a>
-      <a href="/#calendario">Recibir el calendario</a>
+      <a href="/#calendario">Lista de invitados</a>
     </div>
     <div className="desp-col">
-      <span className="desp-tit">Producciones</span>
-      <a href="/producciones#podcast">Podcast</a>
-      <a href="/producciones#animacion">Personajes históricos</a>
-      <a href="/producciones#de-pequeno-a-gigante">De pequeño a Gigante</a>
-      <a href="/producciones#creo-en-ti">Creo en ti</a>
+      <span className="desp-tit">Propiedades</span>
+      <a href="/propiedades#podcast">Podcast Fortaleza Mexicana</a>
+      <a href="/propiedades#conversarian">Conversarian</a>
+      <a href="/propiedades#pequeno-a-gigante">PequeñoAGigante</a>
+      <a href="/propiedades#creo-en-ti">CreoEnTi</a>
     </div>
     <div className="desp-col">
       <span className="desp-tit">Experiencias</span>

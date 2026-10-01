@@ -15,6 +15,13 @@
       "when": 1790751334096,
       "tag": "0001_imagen_aliados",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790861036919,
+      "tag": "0002_propiedades",
+      "breakpoints": true
     }
   ]
 }

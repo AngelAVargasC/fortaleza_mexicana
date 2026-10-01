@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Fortaleza Mexicana",
     short_name: "Fortaleza",
-    description: "Cartelera, videos, producciones y comunidad de Fortaleza Mexicana.",
+    description: "Cartelera, videos, propiedades y comunidad de Fortaleza Mexicana.",
     lang: "es-MX",
     start_url: "/?ref=app",
     scope: "/",

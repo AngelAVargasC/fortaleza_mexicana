@@ -3,8 +3,8 @@ import { Ico } from "@/components/ui/Icons";
 import { FormRegistro } from "@/components/cliente/FormRegistro";
 
 /* Bloque de registro: texto a la izquierda, formulario a la derecha. El
-   mismo para suscribirse al calendario (home, cartelera) y para registrarse
-   como parte de Fortaleza Mexicana (membresia, /registro). */
+   mismo para la lista de invitados (modo "calendario": home, cartelera) y
+   para registrarse como parte de Fortaleza Mexicana (membresia, /registro). */
 export function Registro({
   modo, id, eyebrow, titulo, texto, h1 = false,
 }: {
@@ -24,9 +24,19 @@ export function Registro({
         <Titulo className="h2">{titulo}</Titulo>
         <p className="lead" style={{ maxWidth: "46ch" }}>{texto}</p>
         <ul className="registro-lista">
-          <li><Ico.Chat /> Por WhatsApp o por correo, tú eliges.</li>
-          <li><Ico.Cal /> Solo cuando hay algo nuevo en el calendario.</li>
-          <li><Ico.Check /> Te das de baja cuando quieras.</li>
+          {modo === "calendario" ? (
+            <>
+              <li><Ico.Ticket /> Los próximos eventos se anuncian primero a la lista.</li>
+              <li><Ico.Chat /> Te llega por WhatsApp o por correo, tú eliges.</li>
+              <li><Ico.Check /> Sin costo. Te das de baja cuando quieras.</li>
+            </>
+          ) : (
+            <>
+              <li><Ico.Chat /> Por WhatsApp o por correo, tú eliges.</li>
+              <li><Ico.Cal /> Solo cuando hay algo nuevo en el calendario.</li>
+              <li><Ico.Check /> Te das de baja cuando quieras.</li>
+            </>
+          )}
         </ul>
       </div>
       <FormRegistro modo={modo} />

@@ -77,7 +77,7 @@ export const RECURSOS: Record<string, Recurso> = {
       { nombre: "portadaAlt", etiqueta: "Descripción de la portada", tipo: "texto",
         ayuda: "Para lectores de pantalla." },
       { nombre: "canalId", etiqueta: "Canal", tipo: "relacion", recurso: "canales", nulo: true },
-      { nombre: "produccionId", etiqueta: "Producción", tipo: "relacion", recurso: "producciones", nulo: true },
+      { nombre: "produccionId", etiqueta: "Propiedad", tipo: "relacion", recurso: "producciones", nulo: true },
       { nombre: "estado", etiqueta: "Estado", tipo: "seleccion", porDefecto: "borrador", opciones: ESTADO_PUB },
       { nombre: "publicadaEn", etiqueta: "Fecha de publicación", tipo: "fechaHora", nulo: true,
         ayuda: "Hora de CDMX. Vacía al publicar = ahora. Futura = programada." },
@@ -129,11 +129,13 @@ export const RECURSOS: Record<string, Recurso> = {
   },
 
   producciones: {
-    clave: "producciones", nuevo: "Nueva producción", singular: "producción", plural: "Producciones",
-    descripcion: "Producciones propias: podcast, animación y programas.",
+    clave: "producciones", nuevo: "Nueva propiedad", singular: "propiedad", plural: "Propiedades",
+    descripcion: "Las propiedades de Fortaleza Mexicana: Podcast, Conversarian, PequeñoAGigante, CreoEnTi.",
     campos: [
       { nombre: "titulo", etiqueta: "Título", tipo: "texto", requerido: true },
-      { nombre: "slug", etiqueta: "Slug", tipo: "slug", desde: "titulo", ayuda: "Ancla en /producciones#slug." },
+      { nombre: "slug", etiqueta: "Slug", tipo: "slug", desde: "titulo", ayuda: "Ancla en /propiedades#slug. No lo cambies en las cuatro de origen: su logotipo provisional depende de él." },
+      { nombre: "logoUrl", etiqueta: "Logotipo oficial", tipo: "imagen", nulo: true, ancho: true,
+        ayuda: "SVG o PNG con fondo transparente, en claro (va sobre foto oscura). Vacío = logotipo provisional del sitio." },
       { nombre: "formato", etiqueta: "Formato", tipo: "texto", requerido: true, ayuda: "Podcast, Animación IA, Programa…" },
       { nombre: "estadoTexto", etiqueta: "Estado visible", tipo: "texto", requerido: true, porDefecto: "Próximamente" },
       { nombre: "descripcion", etiqueta: "Descripción", tipo: "textoLargo", filas: 3, requerido: true, ancho: true },
@@ -146,7 +148,7 @@ export const RECURSOS: Record<string, Recurso> = {
     columnas: ["titulo", "formato", "estadoTexto", "orden", "visible"],
     buscarEn: ["titulo", "descripcion"],
     orden: { campo: "orden", dir: "asc" },
-    enSitio: (f) => "/producciones#" + f.slug,
+    enSitio: (f) => "/propiedades#" + f.slug,
   },
 
   aliados: {

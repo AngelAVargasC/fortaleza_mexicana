@@ -94,7 +94,7 @@ export default function Page() {
     </div>
     <div className="pasos">
       <a className="paso rv" href="/cartelera"><span className="n"><Ico.Cal /></span><h3>Cartelera en Frontón México</h3><p>Conferencias, conversaciones y encuentros en vivo en la Ciudad de México.</p></a>
-      <a className="paso rv" href="/producciones"><span className="n"><Ico.Mod /></span><h3>Producciones propias</h3><p>El podcast, la animación de personajes históricos, De pequeño a Gigante y Creo en ti.</p></a>
+      <a className="paso rv" href="/propiedades"><span className="n"><Ico.Mod /></span><h3>Propiedades</h3><p>Podcast Fortaleza Mexicana, Conversarian, PequeñoAGigante y CreoEnTi.</p></a>
       <a className="paso rv" href="/canales"><span className="n"><Ico.Pin /></span><h3>Canales afines</h3><p>Un hub con los canales de nuestros creadores y de medios que piensan México.</p></a>
     </div>
   </div>

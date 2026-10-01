@@ -1,0 +1,53 @@
+/* ── Logotipos de las propiedades (components/ui/LogoPropiedad) ──────────
+   Provisionales hasta tener los oficiales. Todo escala con font-size del
+   marco: .lp-tarjeta (sobre la foto de la tarjeta) y .lp-grande (pagina
+   /propiedades). Marfil sobre la foto, oro como acento de cada una. */
+
+.lp-marco{display:inline-flex;color:var(--blanco);line-height:1;}
+/* En la tarjeta el logo escala con el ANCHO DE LA TARJETA (container
+   query), no de la pantalla: en celular la tarjeta mide media pantalla. */
+.portada-card{container-type:inline-size;}
+.lp-tarjeta{font-size:clamp(8px,6.2cqi,17px);}
+.lp-grande{font-size:clamp(16px,2vw,24px);}
+.lp{display:inline-flex;align-items:center;gap:.6em;}
+.lp svg{display:block;}
+.lp .lp-oro{color:var(--coral);stroke:var(--coral);}
+
+.lp-oficial{display:inline-flex;}
+.lp-oficial img{width:auto;max-width:100%;}
+.lp-oficial.lp-tarjeta img{height:clamp(56px,6vw,84px);}
+.lp-oficial.lp-grande img{height:clamp(72px,9vw,120px);}
+
+/* Podcast Fortaleza Mexicana: sello circular con microfono (eco del monograma) */
+.lp-podcast .lp-sello{width:3.3em;height:3.3em;color:var(--coral);flex:none;}
+.lp-podcast .lp-txt{display:flex;flex-direction:column;gap:.35em;text-align:left;}
+.lp-podcast .lp-pre{font-family:var(--f-ui);font-size:.62em;font-weight:800;letter-spacing:.42em;text-transform:uppercase;color:var(--coral);}
+.lp-podcast .lp-nom{font-family:var(--f-disp);font-weight:700;font-size:1.15em;letter-spacing:.06em;text-transform:uppercase;line-height:1.02;}
+
+/* Conversarian: dos voces que se cruzan en el tiempo */
+.lp-conversarian{flex-direction:column;gap:.45em;}
+.lp-conversarian .lp-burbujas{width:3.2em;height:2.3em;}
+.lp-conversarian .lp-nom{font-family:var(--f-disp);font-weight:700;font-size:1.35em;letter-spacing:.14em;text-transform:uppercase;}
+.lp-conversarian em{font-style:normal;color:var(--coral);}
+.lp-grande .lp-conversarian{align-items:flex-start;}
+
+/* PequeñoAGigante: las letras crecen como los escalones */
+.lp-pag{gap:.4em;align-items:flex-end;}
+.lp-pag .lp-escalon{width:2em;height:2em;flex:none;margin-bottom:.15em;}
+.lp-pag .lp-nom{display:inline-flex;align-items:baseline;font-family:var(--f-ui);font-weight:900;letter-spacing:-.03em;}
+.lp-pag .lp-p{font-size:.72em;font-weight:600;letter-spacing:0;opacity:.85;}
+.lp-pag .lp-a{font-size:.95em;color:var(--coral);margin-inline:.04em;}
+.lp-pag .lp-g{font-size:1.45em;line-height:.9;text-transform:uppercase;}
+
+/* CreoEnTi: el acento esta en "en ti", la apuesta por el otro */
+.lp-creo{gap:.25em;align-items:flex-start;}
+.lp-creo .lp-nom{font-family:var(--f-ui);font-weight:800;font-size:1.7em;letter-spacing:-.035em;}
+.lp-creo .lp-enti{color:var(--coral);font-style:italic;font-weight:900;margin-left:.04em;}
+.lp-creo .lp-chispa{width:1em;height:1em;color:var(--coral);flex:none;margin-top:-.15em;}
+
+.lp-generico .lp-nom{font-family:var(--f-disp);font-weight:700;font-size:1.3em;text-transform:uppercase;letter-spacing:.04em;}
+
+/* Tarjeta de la home: el logo ocupa el lugar del titulo */
+.portada-card-txt .lp-marco{max-width:100%;justify-content:center;overflow:hidden;}
+/* Pagina /propiedades: sello sobre la foto y logo junto al texto */
+.prod-logo{display:flex;}

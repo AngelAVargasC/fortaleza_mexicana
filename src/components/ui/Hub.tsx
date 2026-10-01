@@ -1,22 +1,24 @@
 import { Ico } from "@/components/ui/Icons";
+import { LogoPropiedad } from "@/components/ui/LogoPropiedad";
 import type { Canal, Funcion, Produccion, Vecino } from "@/lib/tipos";
 
 /* Piezas del hub (DEC-027). Reutilizan el marcado de las tarjetas de
    experiencias (.card, .badge, .meta, .estado) para heredar su estilo y el
    revelado de lib/interfaz.js sin CSS nuevo de mas. */
 
-/* Portada vertical de produccion (home, DEC-028): foto alta, titulo en
-   Cinzel sobre la foto, raya y formato debajo, como las tarjetas de la
-   referencia. Toda la tarjeta es el enlace. */
+/* Portada vertical de cada propiedad (home, DEC-028): foto alta, su
+   logotipo sobre la foto, raya y formato debajo. Toda la tarjeta es el
+   enlace. */
 export function PortadasProduccion({ items }: { items: Produccion[] }) {
   return (
     <>
       {items.map((p) => (
-        <a className="portada-card" href={p.enlace ?? "/producciones#" + p.id} key={p.id}>
+        <a className="portada-card" href={p.enlace ?? "/propiedades#" + p.id} key={p.id}>
           <img src={p.img} alt={p.alt} loading="lazy" />
           <span className="pildora">{p.estadoTexto}</span>
           <div className="portada-card-txt">
-            <h3>{p.titulo}</h3>
+            <h3 className="sr-only">{p.titulo}</h3>
+            <LogoPropiedad slug={p.id} titulo={p.titulo} logo={p.logo} />
             <span className="raya" aria-hidden="true"></span>
             <p>{p.formato}{p.red ? " · con Mexicanos Fuertes y Somos Grandes" : ""}</p>
           </div>

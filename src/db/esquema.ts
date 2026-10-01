@@ -53,7 +53,7 @@ export const sesiones = pgTable("sesiones", {
   creadoEn: timestamp("creado_en", { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [index("sesiones_usuario_idx").on(t.usuarioId)]);
 
-/* ── Hub: canales, producciones y publicaciones ── */
+/* ── Hub: canales, propiedades (tabla producciones) y publicaciones ── */
 
 export const canales = pgTable("canales", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -78,6 +78,9 @@ export const producciones = pgTable("producciones", {
   descripcion: text("descripcion").notNull(),
   portadaUrl: text("portada_url").notNull(),
   portadaAlt: text("portada_alt").notNull().default(""),
+  /** Logotipo oficial de la propiedad (SVG o PNG transparente). Sin el, el
+      sitio usa el logotipo provisional de components/ui/LogoPropiedad. */
+  logoUrl: text("logo_url"),
   /** Red con la que se desarrolla, si la hay. */
   red: text("red"),
   estadoTexto: text("estado_texto").notNull().default("Próximamente"),

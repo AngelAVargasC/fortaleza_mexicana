@@ -1,10 +1,11 @@
 import { Ico } from "@/components/ui/Icons";
 import { Footer } from "@/components/layout/Footer";
+import { LogoPropiedad } from "@/components/ui/LogoPropiedad";
 import { obtenerProducciones } from "@/server/contenido";
 
 export const metadata = {
-  title: "Producciones propias",
-  description: "Las producciones de Fortaleza Mexicana: el podcast, la animación de personajes históricos, De pequeño a Gigante y Creo en ti.",
+  title: "Propiedades",
+  description: "Las propiedades de Fortaleza Mexicana: Podcast Fortaleza Mexicana, Conversarian, PequeñoAGigante y CreoEnTi.",
 };
 
 
@@ -18,11 +19,11 @@ export default async function Page() {
 <header className="cab-chica" id="top">
   <div className="wrap cab-chica-in">
     <div className="stack g5">
-      <nav className="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><span>Producciones</span></nav>
-      <span className="eyebrow e-coral">Producciones propias</span>
+      <nav className="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><span>Propiedades</span></nav>
+      <span className="eyebrow e-coral">Propiedades</span>
       <h1 className="h1">Lo que hacemos nosotros.</h1>
-      <p className="lead">Un podcast, una serie animada y dos programas. Cada uno se estrena aquí en
-        cuanto tenga fecha; mientras tanto, se anuncia como próximo.</p>
+      <p className="lead">Podcast Fortaleza Mexicana, Conversarian, PequeñoAGigante y CreoEnTi.
+        Cada una se estrena aquí en cuanto tenga fecha; mientras tanto, se anuncia como próxima.</p>
     </div>
     <div className="stack g4">
       <span className="aviso"><Ico.Reloj /> Estrenos por anunciar.</span>
@@ -38,7 +39,8 @@ export default async function Page() {
         <div className="figura rv"><img src={p.img} alt={p.alt} loading="lazy" /></div>
         <div className="stack g5 rv">
           <span className="badge b-evento" style={{ alignSelf: "flex-start" }}>{p.formato}</span>
-          <h2 className="h2">{p.titulo}</h2>
+          <div className="prod-logo"><LogoPropiedad slug={p.id} titulo={p.titulo} logo={p.logo} tam="grande" /></div>
+          <h2 className="sr-only">{p.titulo}</h2>
           <p className="lead" style={{ maxWidth: "48ch" }}>{p.desc}</p>
           {p.red && <p className="small red-aliada">{p.red}</p>}
           {p.enlace

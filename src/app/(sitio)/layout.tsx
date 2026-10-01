@@ -4,6 +4,7 @@ import "@/styles/detalle.css";
 import "@/styles/institucion.css";
 import "@/styles/hub.css";
 import "@/styles/clasico.css";
+import "@/styles/propiedades.css";
 import "@/styles/movil.css";
 import { Nav } from "@/components/layout/Nav";
 import { Interfaz } from "@/components/cliente/Interfaz";

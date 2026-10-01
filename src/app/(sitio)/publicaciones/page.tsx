@@ -59,7 +59,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
         </div>
       </div>
     )}
-    <a className="lnk lnk-coral" href="/#calendario" style={{ alignSelf: "flex-start" }}>Avísame de lo nuevo <Ico.Flecha /></a>
+    <a className="lnk lnk-coral" href="/#calendario" style={{ alignSelf: "flex-start" }}>Entra a la lista de invitados <Ico.Flecha /></a>
   </div>
 </section>
 </main>

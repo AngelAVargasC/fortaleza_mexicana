@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
         destination: "https://fortalezamexicana.com/:path*",
         permanent: true,
       },
+      // "Producciones" pasa a "Propiedades" (cliente, 2026-10-01): los enlaces
+      // ya compartidos siguen llegando (el #ancla lo conserva el navegador).
+      { source: "/producciones", destination: "/propiedades", permanent: true },
     ];
   },
 };

@@ -17,7 +17,7 @@ type Estado = "listo" | "enviando" | "ok" | "error";
 
 const INTERESES = [
   { id: "cartelera", txt: "Cartelera en Frontón México" },
-  { id: "producciones", txt: "Estrenos: podcast y producciones" },
+  { id: "producciones", txt: "Estrenos de las propiedades" },
   { id: "experiencias", txt: "Workshops, cursos y encuentros" },
 ];
 
@@ -83,11 +83,11 @@ export function FormRegistro({ modo }: { modo: Modo }) {
       <div className="form-ok" role="status">
         <Ico.Check />
         <div className="stack g2">
-          <p className="h4">{modo === "miembro" ? "Ya estás en la lista." : "Listo, ya estás suscrito."}</p>
+          <p className="h4">{modo === "miembro" ? "Ya estás en la lista." : "Ya estás en la lista de invitados."}</p>
           <p className="small mut">
             {modo === "miembro"
               ? "Te escribimos con la cuota, la fecha de apertura y el calendario de encuentros en cuanto estén confirmados."
-              : "Te avisamos de cada función, estreno y experiencia nueva"}
+              : "Te vas a enterar antes que nadie de lo que viene"}
             {modo === "calendario" && (medio === "whatsapp" ? " por WhatsApp." : " por correo.")}
           </p>
         </div>
@@ -136,7 +136,7 @@ export function FormRegistro({ modo }: { modo: Modo }) {
 
       {modo === "calendario" ? (
         <fieldset className="campo">
-          <legend>Quiero enterarme de</legend>
+          <legend>Me interesa</legend>
           <div className="checks">
             {INTERESES.map((i) => (
               <label key={i.id}><input type="checkbox" name="intereses" value={i.id} defaultChecked /> {i.txt}</label>
@@ -160,7 +160,7 @@ export function FormRegistro({ modo }: { modo: Modo }) {
       </label>
 
       <button className="btn btn-lg" type="submit" disabled={estado === "enviando"}>
-        {estado === "enviando" ? "Enviando…" : modo === "miembro" ? "Registrarme" : "Suscribirme"} <Ico.Flecha />
+        {estado === "enviando" ? "Enviando…" : modo === "miembro" ? "Registrarme" : "Quiero estar en la lista"} <Ico.Flecha />
       </button>
 
       {estado === "error" && (

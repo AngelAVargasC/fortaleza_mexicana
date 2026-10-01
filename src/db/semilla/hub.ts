@@ -23,7 +23,7 @@ export interface Funcion {
 /** Vacia hasta que el cliente confirme fechas. La primera es la destacada. */
 export const cartelera: Funcion[] = [];
 
-/* ── Producciones propias ── */
+/* ── Propiedades (tabla producciones) ── */
 
 export interface Produccion {
   id: string;
@@ -50,19 +50,19 @@ export const producciones: Produccion[] = [
     estadoTexto: "Próximamente",
   },
   {
-    id: "animacion", formato: "Animación IA", titulo: "Personajes históricos",
-    desc: "Personajes históricos, animados con inteligencia artificial, hablan de los temas de hoy.",
+    id: "conversarian", formato: "Animación IA", titulo: "Conversarian",
+    desc: "Personajes históricos, animados con inteligencia artificial, conversan sobre los temas de hoy.",
     img: "/img/bb-19.webp", alt: "Mujer leyendo un libro del que surgen una pirámide, una catedral, un águila y un busto antiguo",
     estadoTexto: "Próximamente",
   },
   {
-    id: "de-pequeno-a-gigante", formato: "Programa", titulo: "De pequeño a Gigante",
+    id: "pequeno-a-gigante", formato: "Programa", titulo: "PequeñoAGigante",
     desc: "Historias de quienes empezaron con poco y llegaron lejos, contadas para el que apenas empieza.",
     img: "/img/bb-07.webp", alt: "Mujer joven mirando al cielo en un patio patrimonial al anochecer",
     red: RED, estadoTexto: "Próximamente",
   },
   {
-    id: "creo-en-ti", formato: "Programa", titulo: "Creo en ti",
+    id: "creo-en-ti", formato: "Programa", titulo: "CreoEnTi",
     desc: "Un programa para acompañar y respaldar a quien tiene un proyecto y necesita que alguien apueste por él.",
     img: "/img/bb-20.webp", alt: "Mujer mayor conversando con un grupo alrededor de una mesa con velas",
     red: RED, estadoTexto: "Próximamente",

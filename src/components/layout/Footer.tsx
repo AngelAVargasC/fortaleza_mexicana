@@ -25,9 +25,9 @@ export function Footer() {
         <ul>
           <li><a href="/cartelera">Cartelera</a></li>
           <li><a href="/publicaciones">Publicaciones</a></li>
-          <li><a href="/producciones">Producciones</a></li>
+          <li><a href="/propiedades">Propiedades</a></li>
           <li><a href="/canales">Canales afines</a></li>
-          <li><a href="/#calendario">Recibir el calendario</a></li>
+          <li><a href="/#calendario">Lista de invitados</a></li>
         </ul>
       </div>
       <div>

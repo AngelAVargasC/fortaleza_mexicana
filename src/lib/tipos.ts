@@ -46,9 +46,12 @@ export interface Funcion {
   nota?: string;
 }
 
+/** Una propiedad de Fortaleza Mexicana (en codigo y base: "produccion"). */
 export interface Produccion {
-  /** El slug: ancla en /producciones#slug. */
+  /** El slug: ancla en /propiedades#slug. */
   id: string;
+  /** Logo oficial subido en /admin; sin el, logotipo provisional. */
+  logo?: string;
   formato: string;
   titulo: string;
   desc: string;

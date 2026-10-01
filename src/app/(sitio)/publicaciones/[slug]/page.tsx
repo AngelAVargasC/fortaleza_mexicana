@@ -51,7 +51,7 @@ export default async function Page({ params }: Props) {
 
     <div className="row" style={{ gap: "var(--s3)" }}>
       {p.videoUrl && <a className="btn btn-borde" href={p.videoUrl} target="_blank" rel="noopener">Ver en YouTube <Ico.Externo /></a>}
-      {p.produccion && <a className="btn btn-borde" href={"/producciones#" + p.produccion.slug}>{p.produccion.titulo} <Ico.Flecha /></a>}
+      {p.produccion && <a className="btn btn-borde" href={"/propiedades#" + p.produccion.slug}>{p.produccion.titulo} <Ico.Flecha /></a>}
     </div>
   </div>
 </article>

@@ -15,8 +15,8 @@ import type { Canal, Experiencia, Funcion, Produccion, Publicacion, Vecino } fro
 
 const INTENCIONES = [
   { href: "/cartelera", ico: <Ico.Ticket />, txt: "Ver la cartelera en Frontón México" },
-  { href: "/producciones#podcast", ico: <Ico.Micro />, txt: "Escuchar el podcast" },
-  { href: "/producciones#animacion", ico: <Ico.Play />, txt: "Ver a los personajes históricos" },
+  { href: "/propiedades#podcast", ico: <Ico.Micro />, txt: "Escuchar el Podcast Fortaleza Mexicana" },
+  { href: "/propiedades#conversarian", ico: <Ico.Play />, txt: "Ver Conversarian" },
   { href: "/canales", ico: <Ico.Red />, txt: "Descubrir canales afines" },
   { href: "/experiencias", ico: <Ico.Libro />, txt: "Tomar un workshop o un curso" },
 ];
@@ -24,8 +24,8 @@ const INTENCIONES = [
 const INCLUYE = [
   { ico: <Ico.Ticket />, txt: "Cartelera en vivo en Frontón México" },
   { ico: <Ico.Micro />, txt: "Podcast Fortaleza Mexicana" },
-  { ico: <Ico.Play />, txt: "Animación de personajes históricos" },
-  { ico: <Ico.Check />, txt: "Programas De pequeño a Gigante y Creo en ti" },
+  { ico: <Ico.Play />, txt: "Conversarian: personajes históricos animados con IA" },
+  { ico: <Ico.Check />, txt: "PequeñoAGigante y CreoEnTi" },
   { ico: <Ico.Red />, txt: "Canales de creadores y medios afines" },
   { ico: <Ico.Libro />, txt: "Workshops, cursos y encuentros" },
 ];
@@ -35,9 +35,9 @@ const PREGUNTAS = [
     grupo: "General",
     items: [
       ["¿Qué es Fortaleza Mexicana?",
-        "Una plataforma mexicana de pensamiento, cultura e ideas: reúne en un solo lugar eventos en vivo, producciones propias, canales afines y experiencias de formación."],
+        "Una plataforma mexicana de pensamiento, cultura e ideas: reúne en un solo lugar eventos en vivo, propiedades propias, canales afines y experiencias de formación."],
       ["¿Qué voy a encontrar aquí?",
-        "La cartelera en Frontón México, el podcast, la animación de personajes históricos, los programas De pequeño a Gigante y Creo en ti, los canales de nuestros creadores y el calendario de workshops y cursos."],
+        "La cartelera en Frontón México, el Podcast Fortaleza Mexicana, Conversarian, PequeñoAGigante y CreoEnTi, los canales de nuestros creadores y el calendario de workshops y cursos."],
       ["¿Cómo sumo mi canal al hub?",
         "Escríbenos a hola@fortalezamexicana.mx con el enlace a tu canal y de qué trata. Te respondemos con cómo sumarte."],
     ],
@@ -48,7 +48,7 @@ const PREGUNTAS = [
       ["¿Dónde son los eventos en vivo?",
         "En el Frontón México, en la Plaza de la República de la Ciudad de México. Las fechas se publican en la cartelera en cuanto se confirman."],
       ["¿Cómo me entero de las fechas?",
-        "Suscríbete al calendario de actividades y te avisamos por WhatsApp o por correo, como prefieras, cada vez que haya una función, un estreno o una experiencia nueva."],
+        "Regístrate en la lista de invitados: los próximos eventos se anuncian primero ahí, por WhatsApp o por correo, como prefieras."],
       ["¿Cuánto cuesta la membresía?",
         "La cuota y la fecha de apertura están por confirmar. Si pides tu lugar ahora, te escribimos en cuanto se abran las primeras plazas."],
       ["¿Las experiencias son presenciales o en línea?",
@@ -124,7 +124,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
         <p className="tiny mut"><Ico.Pin /> {SEDE.zona}</p>
         <div className="row" style={{ gap: "var(--s3)" }}>
           <a className="btn btn-borde" href="/cartelera"><Ico.Ticket /> Ver cartelera</a>
-          <a className="btn btn-borde" href="#calendario"><Ico.Cal /> Recibir el calendario</a>
+          <a className="btn btn-borde" href="#calendario"><Ico.Cal /> Lista de invitados</a>
         </div>
       </div>
     </article>
@@ -136,11 +136,11 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
 </section>
 
 {/* ══════════ PRODUCCIONES PROPIAS ══════════ */}
-<section className="sec" id="producciones">
+<section className="sec" id="propiedades">
   <div className="wrap stack g10">
-    <h2 className="titular">Producciones propias.<br /><span>Historias de México, contadas por nosotros.</span></h2>
+    <h2 className="titular">Propiedades.<br /><span>Historias de México, contadas por nosotros.</span></h2>
     <div className="portadas"><PortadasProduccion items={producciones} /></div>
-    <a className="btn btn-gris" href="/producciones" style={{ alignSelf: "center" }}>Ver todas las producciones</a>
+    <a className="btn btn-gris" href="/propiedades" style={{ alignSelf: "center" }}>Ver todas las propiedades</a>
   </div>
 </section>
 
@@ -255,9 +255,9 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
     <Registro
       modo="calendario"
       id="calendario"
-      eyebrow="Calendario de actividades"
-      titulo={<>Que no se te pase<br />ninguna función.</>}
-      texto="Suscríbete y te llega el calendario de Fortaleza Mexicana: funciones en el Frontón México, estrenos y experiencias nuevas."
+      eyebrow="Lista de invitados"
+      titulo={<>Regístrate y entra a la<br />lista de invitados.</>}
+      texto="Los próximos eventos, estrenos y experiencias de Fortaleza Mexicana se anuncian primero a la lista. No te enteres después."
     />
   </div>
 </section>
