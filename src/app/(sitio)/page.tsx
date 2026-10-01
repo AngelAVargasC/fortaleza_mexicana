@@ -4,7 +4,7 @@ import {
 } from "@/server/contenido";
 
 export const metadata = {
-  title: { absolute: "Fortaleza Mexicana — Ideas que se viven" },
+  title: { absolute: "Fortaleza Mexicana — México nos reúne, las ideas nos mueven" },
 };
 
 // Lee de PostgreSQL en cada peticion (con cache por etiqueta): lo que se

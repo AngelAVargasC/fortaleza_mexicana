@@ -52,9 +52,9 @@
   background:linear-gradient(90deg,rgba(23,21,18,0) 30%,rgba(23,21,18,.55) 55%,rgba(23,21,18,.9) 100%),
              linear-gradient(0deg,rgba(23,21,18,.9) 0%,rgba(23,21,18,0) 30%);}
 .portada-in{position:relative;z-index:1;display:flex;justify-content:flex-end;padding-block:var(--s16);}
-.portada-txt{max-width:560px;display:flex;flex-direction:column;gap:var(--s5);}
+.portada-txt{max-width:640px;display:flex;flex-direction:column;gap:var(--s5);}
 .portada-tit{font-family:var(--f-disp);font-weight:700;text-transform:uppercase;letter-spacing:.02em;
-  font-size:clamp(2.2rem,4.4vw,3.9rem);line-height:1.02;}
+  font-size:clamp(2.2rem,3.6vw,3.3rem);line-height:1.04;}
 .portada-tit em{font-style:normal;color:var(--coral);}
 .portada .lead{color:rgba(230,217,200,.86);}
 .portada-raya{width:28px;height:3px;border-radius:2px;background:var(--coral);}
@@ -167,3 +167,9 @@
 
 /* ── pie ── */
 footer{margin-top:0;}
+/* Lema de portada (cliente, 2026-10-01): en pantallas anchas cada frase en
+   una sola linea; en celular se parte con normalidad. */
+@media(min-width:1100px){
+  .portada-txt{max-width:720px;}
+  .portada-tit{white-space:nowrap;}
+}

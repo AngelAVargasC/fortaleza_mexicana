@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s — Fortaleza Mexicana",
   },
   description:
-    "Contenidos, programas y eventos para desarrollar tu criterio, ampliar tu visión y conectar con una comunidad que construye el futuro.",
+    "Fortaleza Mexicana es un espacio donde la historia, el arte y la cultura se viven y se conversan. Contenidos y encuentros que despiertan el pensamiento crítico.",
   appleWebApp: { capable: true, title: "Fortaleza", statusBarStyle: "black-translucent" },
   formatDetection: { telephone: false },
 };

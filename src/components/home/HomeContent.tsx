@@ -54,7 +54,7 @@ const PREGUNTAS = [
     grupo: "Fortaleza Mexicana",
     items: [
       ["¿Qué es Fortaleza Mexicana?",
-        "Una plataforma mexicana de pensamiento, cultura e ideas. Reúne contenido, propiedades propias, creadores y encuentros en vivo para ayudarte a entender el contexto y formar criterio propio."],
+        "Una plataforma mexicana de pensamiento, cultura e ideas. Aquí encuentras el Podcast Fortaleza Mexicana, Conversarian y nuestras demás propiedades, los canales de creadores afines y encuentros en vivo en el Frontón México."],
       ["¿Qué puedo ver hoy?",
         "Los videos más recientes del hub, las propiedades de Fortaleza Mexicana y los canales afines. La cartelera del Frontón México se publica aquí en cuanto haya fechas."],
       ["¿Cómo sumo mi canal al hub?",
@@ -95,10 +95,11 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
   <img className="portada-img" src="/img/hero-figura.webp" alt="Mujer mayor con rebozo, de pie en una calle patrimonial bajo un cielo dorado" />
   <div className="wrap portada-in">
     <div className="portada-txt">
-      <h1 className="portada-tit">Ideas que se viven:<br /><em>experiencias que transforman</em></h1>
+      <h1 className="portada-tit">México nos reúne<br /><em>Las ideas nos mueven</em></h1>
       <p className="lead">
-        Una plataforma mexicana de pensamiento, cultura e ideas: contenido, propiedades
-        propias y encuentros en vivo para formar criterio propio.
+        Fortaleza Mexicana es un espacio donde la historia, el arte y la cultura se viven y
+        se conversan. Creamos contenidos y encuentros que despiertan el pensamiento crítico,
+        nos invitan a mirar a México con otros ojos y a imaginar lo que podemos construir juntos.
       </p>
       <span className="portada-raya" aria-hidden="true"></span>
       <p className="portada-preg">¿Por dónde quieres empezar?</p>
@@ -122,8 +123,8 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
       <p className="lead" style={{ maxWidth: "54ch" }}>
         Las historias que nos cuentan deciden cómo entendemos el pasado, cómo leemos el
         presente y lo que creemos posible. Fortaleza Mexicana es una plataforma de
-        pensamiento, cultura e ideas para mirar nuestra historia sin miedo y formar
-        criterio propio.
+        pensamiento, cultura e ideas para mirar nuestra historia sin miedo y hacernos
+        nuevas preguntas.
       </p>
       <p className="que-es-cierre">Las puertas están abiertas. Entra.</p>
     </div>
@@ -204,7 +205,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
     <div className="hub-banda">
       <div className="stack g5">
         <span className="pildora">Hub de contenidos</span>
-        <h2 className="h2 grande">Las voces que piensan México, en un solo lugar</h2>
+        <h2 className="h2 grande">Las voces que piensan México</h2>
         <p className="lead" style={{ maxWidth: "50ch" }}>
           Canales de nuestros creadores y medios afines: historia, cultura e ideas,
           reunidos para que encuentres a quien seguir.
