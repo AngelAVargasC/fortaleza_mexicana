@@ -14,7 +14,7 @@ export default function Page() {
     <div className="stack g5">
       <nav className="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><span>Contacto</span></nav>
       <span className="eyebrow e-coral">Contacto</span>
-      <h1 className="h1">Hablemos.</h1>
+      <h1 className="h1">Hablemos</h1>
       <p className="lead">Un solo correo para todo, con el asunto ya puesto según lo que necesites.
         Contestamos en días hábiles.</p>
     </div>
@@ -54,7 +54,7 @@ export default function Page() {
   <div className="wrap dos">
     <div className="stack g5 pegado rv">
       <span className="eyebrow e-coral">Antes de escribir</span>
-      <h2 className="h2">Tres respuestas<br />que ahorran un correo.</h2>
+      <h2 className="h2">Tres respuestas<br />que ahorran un correo</h2>
     </div>
     <ol className="principios">
       <li className="rv"><div><h3>¿Cómo me inscribo a una experiencia?</h3><p>Desde la página de cada experiencia, con el botón de reserva. Te contestamos con precio, sede y forma de pago.</p></div></li>
@@ -70,7 +70,7 @@ export default function Page() {
       <span className="orn" aria-hidden="true"></span>
       <div className="stack g3">
         <span className="eyebrow">Boletín</span>
-        <h2 className="h2">Lo que se confirma, llega primero por correo.</h2>
+        <h2 className="h2">Lo que se confirma, llega primero por correo</h2>
         <p className="lead" style={{ maxWidth: "52ch" }}>Fechas, sedes y aperturas de cupo. Sin frecuencia fija: solo cuando hay algo que decir.</p>
       </div>
       <a className="btn btn-lg" href="mailto:hola@fortalezamexicana.mx?subject=Bolet%C3%ADn%20%C2%B7%20Quiero%20recibirlo">Quiero recibirlo <Ico.Flecha /></a>

@@ -22,7 +22,7 @@ export default async function Page() {
     <div className="stack g5">
       <nav className="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><span>Canales afines</span></nav>
       <span className="eyebrow e-coral">Hub de contenidos</span>
-      <h1 className="h1">Las voces que piensan México.</h1>
+      <h1 className="h1">Las voces que piensan México</h1>
       <p className="lead">Los canales de nuestros creadores y de medios afines, reunidos en un solo
         lugar. Cada enlace lleva a su canal: aquí no se republica nada.</p>
     </div>
@@ -57,7 +57,7 @@ export default async function Page() {
       <span className="orn" aria-hidden="true"></span>
       <div className="stack g3">
         <span className="eyebrow">¿Tienes un canal?</span>
-        <h2 className="h2">Si hablas de México con criterio, tu lugar está aquí.</h2>
+        <h2 className="h2">Si hablas de México con criterio, tu lugar está aquí</h2>
         <p className="lead" style={{ maxWidth: "52ch" }}>Escríbenos con el enlace a tu canal y de qué trata. Te respondemos con cómo sumarte al hub.</p>
       </div>
       <a className="btn btn-lg" href={CORREO_HUB}>Escríbenos <Ico.Flecha /></a>

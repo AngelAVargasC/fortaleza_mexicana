@@ -30,7 +30,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
     <div className="stack g5">
       <nav className="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><span>Publicaciones</span></nav>
       <span className="eyebrow e-coral">Hub de contenidos</span>
-      <h1 className="h1">Publicaciones.</h1>
+      <h1 className="h1">Publicaciones</h1>
       <p className="lead">Videos, artículos y episodios de Fortaleza Mexicana y de las voces que piensan México.</p>
     </div>
   </div>

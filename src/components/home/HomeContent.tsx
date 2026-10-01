@@ -76,7 +76,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
   <img className="portada-img" src="/img/hero-figura.webp" alt="Mujer mayor con rebozo, de pie en una calle patrimonial bajo un cielo dorado" />
   <div className="wrap portada-in">
     <div className="portada-txt">
-      <h1 className="portada-tit">Ideas que se viven.<br /><em>Experiencias que transforman.</em></h1>
+      <h1 className="portada-tit">Ideas que se viven<br /><em>Experiencias que transforman</em></h1>
       <p className="lead">
         Contenidos, programas y eventos para desarrollar tu criterio, ampliar tu visión
         y conectar con una comunidad que construye el futuro.
@@ -98,7 +98,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
 <section className="sec incluye">
   <div className="wrap incluye-in">
     <div className="stack g6">
-      <h2 className="h2 grande">Todo Fortaleza Mexicana,<br />en un solo lugar.</h2>
+      <h2 className="h2 grande">Todo Fortaleza Mexicana,<br />en un solo lugar</h2>
       <div className="row" style={{ gap: "var(--s3)" }}>
         <a className="btn btn-lg" href="/membresia">Únete <Ico.Flecha /></a>
         <a className="btn btn-lg btn-borde" href="/cartelera"><Ico.Ticket /> Ver cartelera</a>
@@ -113,7 +113,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
 {/* ══════════ CARTELERA · DESTACADO EN BANDA ══════════ */}
 <section className="sec" id="cartelera">
   <div className="wrap stack g10">
-    <h2 className="titular">En vivo en {SEDE.nombre}.<br /><span>La cartelera de Fortaleza Mexicana.</span></h2>
+    <h2 className="titular">En vivo en {SEDE.nombre}<br /><span>La cartelera de Fortaleza Mexicana</span></h2>
     <article className="banda-dest">
       <img src="/img/bb-17.webp" alt="Un hombre habla de pie ante un grupo sentado a una mesa, en un patio con faroles" loading="lazy" />
       <div className="banda-dest-txt">
@@ -138,7 +138,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
 {/* ══════════ PRODUCCIONES PROPIAS ══════════ */}
 <section className="sec" id="propiedades">
   <div className="wrap stack g10">
-    <h2 className="titular">Propiedades.<br /><span>Historias de México, contadas por nosotros.</span></h2>
+    <h2 className="titular">Propiedades<br /><span>Historias de México, contadas por nosotros</span></h2>
     <div className="portadas"><PortadasProduccion items={producciones} /></div>
     <a className="btn btn-gris" href="/propiedades" style={{ alignSelf: "center" }}>Ver todas las propiedades</a>
   </div>
@@ -148,7 +148,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
 {publicaciones.length > 0 && (
 <section className="sec" id="recientes">
   <div className="wrap stack g8">
-    <h2 className="titular">Lo más reciente.<br /><span>Videos, artículos y episodios del hub.</span></h2>
+    <h2 className="titular">Lo más reciente<br /><span>Videos, artículos y episodios del hub</span></h2>
     <div className="pubs riel-movil"><TarjetasPublicacion items={publicaciones} /></div>
     <a className="btn btn-gris" href="/publicaciones" style={{ alignSelf: "center" }}>Ver todas las publicaciones</a>
   </div>
@@ -158,7 +158,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
 {/* ══════════ EXPERIENCIAS · CHIPS + RIEL ══════════ */}
 <section className="sec" id="experiencias">
   <div className="wrap stack g8">
-    <h2 className="titular">Una dosis de criterio,<br /><span>cuando la necesites.</span></h2>
+    <h2 className="titular">Una dosis de criterio,<br /><span>cuando la necesites</span></h2>
     <div className="chips chips-cat" role="group" aria-label="Filtrar por tipo">
       <button className="chip" type="button" data-f="todas" aria-pressed="true">Todas</button>
       <button className="chip" type="button" data-f="workshop" aria-pressed="false">Workshops</button>
@@ -186,7 +186,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
     <div className="hub-banda">
       <div className="stack g5">
         <span className="pildora">Hub de contenidos</span>
-        <h2 className="h2 grande">Las voces que piensan México, en un solo lugar.</h2>
+        <h2 className="h2 grande">Las voces que piensan México, en un solo lugar</h2>
         <p className="lead" style={{ maxWidth: "50ch" }}>
           Canales de nuestros creadores y medios afines: historia, cultura e ideas,
           reunidos para que encuentres a quien seguir.
@@ -216,7 +216,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
 {/* ══════════ MEMBRESÍA ══════════ */}
 <section className="sec empieza">
   <div className="wrap stack g5" style={{ alignItems: "center", textAlign: "center" }}>
-    <h2 className="h2 grande">Empieza hoy.</h2>
+    <h2 className="h2 grande">Empieza hoy</h2>
     <p className="lead" style={{ maxWidth: "52ch" }}>
       Pide tu lugar en la primera generación de miembros: acceso a contenidos, encuentros
       privados y prioridad en cada experiencia. Cuota y apertura por confirmar.
@@ -256,7 +256,7 @@ export function HomeContent({ cartelera, producciones, canales, enElFronton, cat
       modo="calendario"
       id="calendario"
       eyebrow="Lista de invitados"
-      titulo={<>Regístrate y entra a la<br />lista de invitados.</>}
+      titulo={<>Regístrate para acceder a nuestra<br />lista de invitados de próximos eventos</>}
       texto="Los próximos eventos, estrenos y experiencias de Fortaleza Mexicana se anuncian primero a la lista. No te enteres después."
     />
   </div>

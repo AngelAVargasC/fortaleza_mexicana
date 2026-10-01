@@ -65,7 +65,7 @@ export default async function Page() {
   <div className="wrap dos">
     <div className="stack g5 pegado rv">
       <span className="eyebrow e-coral">Qué vas a hacer</span>
-      <h2 className="h2">Leer el presente<br />con método, no con opinión.</h2>
+      <h2 className="h2">Leer el presente<br />con método, no con opinión</h2>
     </div>
     <div className="prosa rv">
       <p>
@@ -124,7 +124,7 @@ export default async function Page() {
   <div className="wrap dos">
     <div className="stack g5 pegado rv">
       <span className="eyebrow">Programa del día</span>
-      <h2 className="h2">Ocho horas,<br />cinco bloques.</h2>
+      <h2 className="h2">Ocho horas,<br />cinco bloques</h2>
       <p className="lead" style={{ maxWidth: "36ch" }}>El orden importa: primero se lee, después se discute, al final se escribe.</p>
     </div>
     <ol className="prog rv">
@@ -174,7 +174,7 @@ export default async function Page() {
       <span className="orn" aria-hidden="true"></span>
       <div className="stack g3">
         <span className="eyebrow" style={{ color: "#63151A" }}>Inscripción</span>
-        <h2 className="h2">Quedan 6 lugares para el 24 de mayo.</h2>
+        <h2 className="h2">Quedan 6 lugares para el 24 de mayo</h2>
         <p className="lead" style={{ maxWidth: "52ch" }}>
           El precio y la sede se comunican al reservar. Si la edición no se abre, se devuelve
           el importe completo.

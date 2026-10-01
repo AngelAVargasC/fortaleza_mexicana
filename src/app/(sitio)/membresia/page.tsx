@@ -23,7 +23,7 @@ export default async function Page() {
     <div className="stack g5" style={{ maxWidth: "720px" }}>
       <nav className="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><span>Membresía</span></nav>
       <span className="eyebrow e-coral">Membresía</span>
-      <h1 className="h1">Una comunidad que piensa en voz alta.</h1>
+      <h1 className="h1">Una comunidad que piensa en voz alta</h1>
       <p className="lead" style={{ color: "rgba(230,217,200,.85)", maxWidth: "52ch" }}>
         La membresía es la forma de estar dentro: acceso a lo que publicamos, a los encuentros
         que no se abren al público y a la red de personas que ya pasaron por las experiencias.
@@ -38,7 +38,7 @@ export default async function Page() {
   <div className="wrap dos">
     <div className="stack g5 pegado rv">
       <span className="eyebrow e-coral">Qué incluye</span>
-      <h2 className="h2">Lo que tiene<br />una persona miembro.</h2>
+      <h2 className="h2">Lo que tiene<br />una persona miembro</h2>
     </div>
     <div className="stack g8">
       <ul className="benef rv" style={{ gap: "var(--s5)", fontSize: "1.0625rem" }}>
@@ -71,7 +71,7 @@ export default async function Page() {
   <div className="wrap dos">
     <div className="stack g5 pegado rv">
       <span className="eyebrow">Para quién es</span>
-      <h2 className="h2">Personas que toman decisiones<br />y quieren tomarlas mejor.</h2>
+      <h2 className="h2">Personas que toman decisiones<br />y quieren tomarlas mejor</h2>
     </div>
     <div className="prosa rv" style={{ color: "rgba(23,21,18,.8)" }}>
       <p>Emprendedores, directivos, docentes, periodistas, servidores públicos, creadores. No pedimos
@@ -89,7 +89,7 @@ export default async function Page() {
       modo="miembro"
       id="registro"
       eyebrow="Únete"
-      titulo={<>Pide tu lugar en<br />la primera generación.</>}
+      titulo={<>Pide tu lugar en<br />la primera generación</>}
       texto="Te escribimos con la cuota, la fecha de apertura y el calendario de encuentros en cuanto estén confirmados."
     />
   </div>

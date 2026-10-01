@@ -17,7 +17,7 @@ export default function Page() {
       modo="miembro"
       h1
       eyebrow="Regístrate"
-      titulo={<>Sé parte de<br />Fortaleza Mexicana.</>}
+      titulo={<>Sé parte de<br />Fortaleza Mexicana</>}
       texto="Déjanos tus datos y te sumamos a la primera generación: te escribimos con la membresía, los encuentros y cada función en el Frontón México."
     />
   </div>

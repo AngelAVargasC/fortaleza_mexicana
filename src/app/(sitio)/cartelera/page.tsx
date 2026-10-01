@@ -24,7 +24,7 @@ export default async function Page() {
     <div className="stack g5" style={{ maxWidth: "760px" }}>
       <nav className="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><span>Cartelera</span></nav>
       <span className="eyebrow e-coral">Cartelera · {SEDE.nombre}</span>
-      <h1 className="h1">Fortaleza Mexicana, en vivo.</h1>
+      <h1 className="h1">Fortaleza Mexicana, en vivo</h1>
       <p className="lead" style={{ color: "rgba(230,217,200,.85)", maxWidth: "52ch" }}>
         Conferencias, conversaciones y encuentros con público en el {SEDE.nombre}, en el
         corazón de la Ciudad de México.
@@ -60,7 +60,7 @@ export default async function Page() {
       modo="calendario"
       id="calendario"
       eyebrow="Lista de invitados"
-      titulo={<>Regístrate y entra a la<br />lista de invitados.</>}
+      titulo={<>Regístrate para acceder a nuestra<br />lista de invitados de próximos eventos</>}
       texto="Lo que viene en el Frontón México se anuncia primero a quienes están en la lista. Cuando se abre al público, tú ya sabes la fecha."
     />
   </div>

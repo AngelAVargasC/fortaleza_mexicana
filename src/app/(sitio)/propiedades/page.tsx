@@ -21,7 +21,7 @@ export default async function Page() {
     <div className="stack g5">
       <nav className="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><span>Propiedades</span></nav>
       <span className="eyebrow e-coral">Propiedades</span>
-      <h1 className="h1">Lo que hacemos nosotros.</h1>
+      <h1 className="h1">Lo que hacemos nosotros</h1>
       <p className="lead">Podcast Fortaleza Mexicana, Conversarian, PequeñoAGigante y CreoEnTi.
         Cada una se estrena aquí en cuanto tenga fecha; mientras tanto, se anuncia como próxima.</p>
     </div>

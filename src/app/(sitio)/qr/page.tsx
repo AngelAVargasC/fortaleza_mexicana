@@ -15,7 +15,7 @@ export default function Page() {
   <div className="wrap cab-chica-in">
     <div className="stack g5">
       <span className="eyebrow e-coral">Códigos QR</span>
-      <h1 className="h1">Para imprimir.</h1>
+      <h1 className="h1">Para imprimir</h1>
       <p className="lead">Uno lleva a la página y otro al registro. Descarga el SVG para imprenta
         o el PNG para pantallas y redes.</p>
     </div>

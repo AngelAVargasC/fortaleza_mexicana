@@ -21,7 +21,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ e
     <>
       <header className="adm-cab">
         <div>
-          <h1 className="adm-h1">Hola, {u.nombre.split(" ")[0]}.</h1>
+          <h1 className="adm-h1">Hola, {u.nombre.split(" ")[0]}</h1>
           <p className="adm-sub">Lo que se guarda aquí sale en el sitio al momento.</p>
         </div>
         <a className="btn" href="/admin/publicaciones/nuevo">Nueva publicación</a>

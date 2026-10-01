@@ -15,7 +15,7 @@ export default function Page() {
     <div className="stack g5" style={{ maxWidth: "760px" }}>
       <nav className="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><span>Quiénes somos</span></nav>
       <span className="eyebrow e-coral">Institución</span>
-      <h1 className="h1">Mirar a México desde su propia fuerza.</h1>
+      <h1 className="h1">Mirar a México desde su propia fuerza</h1>
       <p className="lead" style={{ color: "rgba(230,217,200,.85)", maxWidth: "54ch" }}>
         Fortaleza Mexicana es un recinto donde la historia, la cultura y la creación se
         encuentran. Un espacio vivo para las ideas, el arte, la conversación y el encuentro.
@@ -48,7 +48,7 @@ export default function Page() {
   <div className="wrap dos">
     <div className="stack g5 pegado rv">
       <span className="eyebrow e-coral">Personalidad</span>
-      <h2 className="h2">Una voz sólida,<br />cultural y abierta.</h2>
+      <h2 className="h2">Una voz sólida,<br />cultural y abierta</h2>
       <p className="lead" style={{ maxWidth: "36ch" }}>Capaz de comunicar identidad, pensamiento y experiencia con carácter propio.</p>
     </div>
     <div className="stack g8">
@@ -74,7 +74,7 @@ export default function Page() {
   <div className="wrap dos">
     <div className="stack g5 pegado rv">
       <span className="eyebrow e-coral">Principios editoriales</span>
-      <h2 className="h2">Cinco reglas<br />que no se negocian.</h2>
+      <h2 className="h2">Cinco reglas<br />que no se negocian</h2>
     </div>
     <ol className="principios">
       <li className="rv"><div><h3>Material real, siempre</h3><p>Datos, archivo, prensa, testimonios. Ninguna experiencia se construye sobre opiniones sueltas.</p></div></li>
@@ -106,7 +106,7 @@ export default function Page() {
       <span className="orn" aria-hidden="true"></span>
       <div className="stack g3">
         <span className="eyebrow">Sé parte</span>
-        <h2 className="h2">La forma de estar dentro es la membresía.</h2>
+        <h2 className="h2">La forma de estar dentro es la membresía</h2>
         <p className="lead" style={{ maxWidth: "52ch" }}>Acceso a contenidos, encuentros privados, red de miembros y prioridad en las experiencias.</p>
       </div>
       <a className="btn btn-lg" href="/membresia">Conocer la membresía <Ico.Flecha /></a>

@@ -83,7 +83,7 @@ export function FormRegistro({ modo }: { modo: Modo }) {
       <div className="form-ok" role="status">
         <Ico.Check />
         <div className="stack g2">
-          <p className="h4">{modo === "miembro" ? "Ya estás en la lista." : "Ya estás en la lista de invitados."}</p>
+          <p className="h4">{modo === "miembro" ? "Ya estás en la lista" : "Ya estás en la lista de invitados"}</p>
           <p className="small mut">
             {modo === "miembro"
               ? "Te escribimos con la cuota, la fecha de apertura y el calendario de encuentros en cuanto estén confirmados."

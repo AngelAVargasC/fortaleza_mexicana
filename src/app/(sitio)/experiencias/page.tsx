@@ -57,7 +57,7 @@ export default async function Page() {
       <span className="orn" aria-hidden="true"></span>
       <div className="stack g3">
         <span className="eyebrow">¿Buscas algo para tu equipo?</span>
-        <h2 className="h2">Las experiencias también se diseñan a medida.</h2>
+        <h2 className="h2">Las experiencias también se diseñan a medida</h2>
         <p className="lead" style={{ maxWidth: "52ch" }}>Workshops cerrados para empresas, escuelas y colectivos, con el mismo método de los abiertos.</p>
       </div>
       <a className="btn btn-lg" href="/contacto#alianzas">Escríbenos <Ico.Flecha /></a>
