@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "@/styles/redes.css";
 import { REDES } from "@/lib/sitio";
+import { Clarity } from "@/components/cliente/Clarity";
 
 /* Enlace de bio: una sola direccion para compartir en grupos de WhatsApp y
    en las bios de redes. Vive fuera de (sitio): sin barra ni pie, carga
@@ -84,6 +85,7 @@ export default function Page() {
 
         <a className="redes-registro" href="/registro">Regístrate para recibir novedades</a>
       </div>
+      <Clarity />
     </main>
   );
 }
