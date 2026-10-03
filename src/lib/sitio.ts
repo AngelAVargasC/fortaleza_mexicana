@@ -16,3 +16,11 @@ export const CORREO_HUB =
 
 /** Las fechas se pintan siempre en la hora de la sede. */
 export const ZONA_HORARIA = "America/Mexico_City";
+
+/** Redes oficiales, en el orden en que se muestran en /redes. */
+export const REDES = {
+  youtube: "https://www.youtube.com/channel/UCBjtr2Okl_QTcJBGXvskeKA",
+  instagram: "https://www.instagram.com/fortalezamexicana/",
+  tiktok: "https://www.tiktok.com/@fortalezamexicana",
+  facebook: "https://www.facebook.com/profile.php?id=61595148742254",
+};

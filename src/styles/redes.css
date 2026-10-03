@@ -1,0 +1,34 @@
+/* /redes — enlace de bio. Columna unica, pensada para el celular. */
+.redes{
+  min-height:100svh;display:flex;justify-content:center;
+  padding:calc(var(--s12) + env(safe-area-inset-top)) var(--s4) calc(var(--s12) + env(safe-area-inset-bottom));
+  background:radial-gradient(120% 60% at 50% 0%,var(--g800) 0%,var(--negro) 70%);
+}
+.redes-in{width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.redes-marca img{width:96px;height:96px;object-fit:contain;}
+.redes-titulo{margin-top:var(--s5);font-size:1.6rem;letter-spacing:.06em;text-transform:uppercase;}
+.redes-lema{margin-top:var(--s2);color:var(--txt-2);font-size:.9375rem;}
+
+.redes-lista{list-style:none;margin:var(--s10) 0 0;padding:0;width:100%;display:flex;flex-direction:column;gap:var(--s3);}
+.redes-enlace{
+  display:flex;align-items:center;gap:var(--s4);text-align:left;
+  padding:var(--s4) var(--s5);border:1px solid var(--g700);border-radius:var(--r-md);
+  background:var(--g900);
+  transition:border-color var(--dur) var(--ease),background var(--dur) var(--ease),transform var(--dur) var(--ease);
+}
+.redes-enlace:hover{border-color:var(--coral);background:var(--g800);}
+.redes-enlace:active{transform:scale(.985);}
+.redes-ico{flex:none;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;
+  border:1px solid var(--g600);color:var(--coral);}
+.redes-ico svg{width:22px;height:22px;}
+.redes-txt{flex:1;min-width:0;display:flex;flex-direction:column;}
+.redes-txt strong{font-weight:600;font-size:1rem;}
+.redes-txt span{color:var(--txt-2);font-size:.8125rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.redes-flecha{flex:none;width:18px;height:18px;color:var(--gris);transition:color var(--dur) var(--ease);}
+.redes-enlace:hover .redes-flecha{color:var(--coral);}
+
+.redes-registro{
+  margin-top:var(--s8);padding:var(--s3) var(--s6);border-radius:var(--r-full);
+  background:var(--coral-btn);color:var(--negro);font-weight:600;font-size:.9375rem;
+}
+@media (prefers-reduced-motion:reduce){.redes-enlace{transition:none;}}
